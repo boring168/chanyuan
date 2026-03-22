@@ -1,0 +1,60 @@
+{
+  "brand": {
+    "name": "禅院造型",
+    "intro": "以干净轮廓、柔和质感与高级妆面为核心，为新娘、写真与活动场景提供细腻妆发服务。"
+  },
+  "hero": {
+    "highlightTitle": "适合预约转化的轻量官网",
+    "highlightCopy": "首屏突出品牌、服务与预约入口，既保留高级感，也方便日常运营维护。"
+  },
+  "bookingFormUrl": "https://my.feishu.cn/share/base/form/shrcn9vYbWLq3MU3w2zCnHB2f9f",
+  "servicesSummary": "围绕不同场景提供妆面设计、发型设计与整体气质搭配建议，兼顾现场状态、镜头质感与个人气质表达。",
+  "services": [
+    {
+      "title": "新娘跟妆",
+      "description": "适合婚礼当天仪式、外景与晚宴环节，强调持妆与整体氛围统一。"
+    },
+    {
+      "title": "写真造型",
+      "description": "根据拍摄风格定制妆发质感，兼顾上镜表现与个人辨识度。"
+    },
+    {
+      "title": "宴会妆发",
+      "description": "适合晚宴、年会、生日宴与品牌活动等重要场合，突出精致高级感。"
+    },
+    {
+      "title": "一对一妆容定制",
+      "description": "适合日常形象升级或重要见面场景，可沟通偏好、肤质与穿搭方向。"
+    }
+  ],
+  "bookingProcess": [
+    {
+      "title": "填写预约信息",
+      "description": "先提交称呼、联系方式、服务类型、预约日期与时间段，便于快速判断档期。"
+    },
+    {
+      "title": "跳转飞书登记",
+      "description": "点击提交后继续进入飞书表单，补充标准化信息，方便统一管理。"
+    },
+    {
+      "title": "确认档期与细节",
+      "description": "收到信息后会尽快联系确认时间、地点、妆造偏好与是否需要附加服务。"
+    }
+  ],
+  "contact": {
+    "wechat": "StillinLoveWithYouH",
+    "city": "北京"
+  },
+  "contactCards": [
+    {
+      "label": "Wechat",
+      "title": "StillinLoveWithYouH",
+      "description": "建议优先添加微信沟通妆造风格、发送参考图与确认档期细节。"
+    },
+    {
+      "label": "Feishu Form",
+      "title": "统一预约入口",
+      "description": "将真实飞书表单链接替换到配置文件后，网站预约按钮会自动同步。"
+    }
+  ]
+}

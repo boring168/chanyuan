@@ -1,412 +1,211 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>化妆师婵媛 · 预约</title>
-<style>
-  :root {
-    --bg: #FAF7F4;
-    --card: #FFFFFF;
-    --text: #2C2420;
-    --text-light: #8A7E76;
-    --accent: #C4956A;
-    --accent-dark: #A67B52;
-    --accent-soft: #EDE0D4;
-    --border: #E8E0D8;
-    --shadow: 0 2px 20px rgba(44,36,32,0.06);
-    --shadow-hover: 0 8px 32px rgba(44,36,32,0.12);
-    --radius: 16px;
-    --font: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>禅院造型 | 轻运营版美妆预约官网</title>
+    <meta
+      name="description"
+      content="禅院造型提供新娘跟妆、写真造型、活动妆发等预约服务，支持移动端快速预约与作品展示。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand-mark" href="#top" aria-label="禅院造型首页">
+          <span class="brand-mark__en">CHANYUAN</span>
+          <span class="brand-mark__cn">禅院造型</span>
+        </a>
+        <nav class="site-nav" aria-label="主导航">
+          <a href="#services">服务</a>
+          <a href="#portfolio">作品</a>
+          <a href="#booking-process">流程</a>
+          <a href="#contact">联系</a>
+        </nav>
+        <a class="header-cta" href="#booking">立即预约</a>
+      </header>
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+      <main id="top">
+        <section class="hero">
+          <div class="hero__content">
+            <p class="eyebrow">轻运营版美妆预约官网</p>
+            <h1 id="brand-title">禅院造型</h1>
+            <p class="hero__lead" id="brand-intro">
+              以干净轮廓、柔和质感与高级妆面为核心，为新娘、写真与活动场景提供细腻妆发服务。
+            </p>
+            <div class="hero__service-tags" id="hero-services" aria-label="核心服务"></div>
+            <div class="hero__actions">
+              <a class="primary-button" href="#booking">立即预约</a>
+              <a class="secondary-button" href="#portfolio">查看作品</a>
+            </div>
+          </div>
+          <div class="hero__visual">
+            <div class="hero-card hero-card--main">
+              <p class="hero-card__label">品牌定位</p>
+              <h2 id="hero-highlight-title">高级感妆造</h2>
+              <p id="hero-highlight-copy">
+                适合婚礼、写真、宴会与重要场合，注重持妆表现与镜头质感。
+              </p>
+            </div>
+            <div class="hero-card hero-card--accent">
+              <p class="hero-card__label">预约方式</p>
+              <p class="hero-card__strong">填写需求后跳转飞书表单</p>
+              <p class="hero-card__muted">让客户更快提交，让后续运营更轻松。</p>
+            </div>
+          </div>
+        </section>
 
-  body {
-    font-family: var(--font);
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
+        <section class="section section--services" id="services">
+          <div class="section-heading">
+            <p class="eyebrow">Services</p>
+            <h2>服务内容</h2>
+            <p id="services-summary">
+              围绕不同场景提供妆面设计、发型设计与整体气质搭配建议。
+            </p>
+          </div>
+          <div class="service-grid" id="services-grid"></div>
+        </section>
 
-  .hero {
-    position: relative;
-    padding: 60px 24px 40px;
-    text-align: center;
-    background: linear-gradient(165deg, #F5EDE6 0%, #EDE0D4 50%, #E8D5C4 100%);
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(196,149,106,0.15) 0%, transparent 70%);
-  }
-  .hero-avatar {
-    width: 88px; height: 88px;
-    border-radius: 50%;
-    background: var(--accent);
-    margin: 0 auto 16px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 36px;
-    box-shadow: 0 4px 24px rgba(196,149,106,0.3);
-    position: relative; z-index: 1;
-  }
-  .hero h1 {
-    font-size: 26px; font-weight: 700; letter-spacing: 2px;
-    margin-bottom: 6px; position: relative; z-index: 1;
-  }
-  .hero .subtitle {
-    font-size: 12px; color: var(--text-light); font-weight: 300;
-    letter-spacing: 3px; position: relative; z-index: 1;
-  }
+        <section class="section section--booking" id="booking">
+          <div class="section-heading">
+            <p class="eyebrow">Booking</p>
+            <h2>立即预约</h2>
+            <p>
+              先提交基础信息，我们会尽快与你确认档期。点击提交后将继续跳转到飞书表单完成登记。
+            </p>
+          </div>
+          <div class="booking-layout">
+            <form class="booking-form" id="booking-form">
+              <label>
+                <span>称呼</span>
+                <input type="text" name="name" placeholder="例如：林小姐" required />
+              </label>
+              <label>
+                <span>微信号 / 手机号</span>
+                <input
+                  type="text"
+                  name="contact"
+                  placeholder="填写任一常用联系方式"
+                  required
+                />
+              </label>
+              <label>
+                <span>服务类型</span>
+                <select name="service" required id="service-select">
+                  <option value="">请选择服务类型</option>
+                </select>
+              </label>
+              <label>
+                <span>预约日期</span>
+                <input type="date" name="date" required />
+              </label>
+              <label>
+                <span>时间段</span>
+                <select name="timeSlot" required>
+                  <option value="">请选择时间段</option>
+                  <option value="上午">上午</option>
+                  <option value="下午">下午</option>
+                  <option value="晚上">晚上</option>
+                  <option value="全天可协商">全天可协商</option>
+                </select>
+              </label>
+              <label class="booking-form__full">
+                <span>备注需求</span>
+                <textarea
+                  name="notes"
+                  rows="5"
+                  placeholder="例如：婚礼跟妆、偏清透、是否需要妈妈妆/伴娘妆等"
+                ></textarea>
+              </label>
+              <div class="booking-form__actions">
+                <button class="primary-button" type="submit">填写并跳转飞书表单</button>
+                <p class="booking-form__hint" id="booking-hint">
+                  表单内容会先保存在当前浏览器，跳转后可对照填写。
+                </p>
+              </div>
+            </form>
 
-  .nav-tabs {
-    display: flex; background: var(--card);
-    border-bottom: 1px solid var(--border);
-    position: sticky; top: 0; z-index: 100;
-  }
-  .nav-tab {
-    flex: 1; padding: 14px 8px; text-align: center;
-    font-size: 14px; font-weight: 500; color: var(--text-light);
-    background: none; border: none; cursor: pointer;
-    position: relative; transition: color 0.3s; font-family: var(--font);
-  }
-  .nav-tab.active { color: var(--accent-dark); font-weight: 600; }
-  .nav-tab.active::after {
-    content: ''; position: absolute;
-    bottom: 0; left: 50%; transform: translateX(-50%);
-    width: 24px; height: 2px; background: var(--accent); border-radius: 2px;
-  }
+            <aside class="booking-sidecard">
+              <p class="booking-sidecard__label">预约入口</p>
+              <a class="secondary-button secondary-button--full" id="feishu-link" href="#" target="_blank" rel="noreferrer">
+                直接打开飞书表单
+              </a>
+              <div class="booking-sidecard__detail" id="quick-contact"></div>
+            </aside>
+          </div>
+        </section>
 
-  .section { display: none; padding: 20px 16px 100px; animation: fadeIn 0.3s ease; }
-  .section.active { display: block; }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .section-title { font-size: 18px; font-weight: 600; margin-bottom: 16px; padding-left: 4px; }
+        <section class="section section--portfolio" id="portfolio">
+          <div class="section-heading">
+            <p class="eyebrow">Portfolio</p>
+            <h2>作品展示</h2>
+            <p>作品图片、标题与描述从独立配置文件读取，后续替换更省心。</p>
+          </div>
+          <div class="portfolio-grid" id="portfolio-grid"></div>
+        </section>
 
-  .package-card {
-    background: var(--card); border-radius: var(--radius);
-    padding: 20px; margin-bottom: 14px;
-    box-shadow: var(--shadow); border: 2px solid transparent;
-    cursor: pointer; transition: all 0.3s ease;
-    position: relative; overflow: hidden;
-  }
-  .package-card:active { transform: scale(0.98); }
-  .package-card.selected { border-color: var(--accent); box-shadow: var(--shadow-hover); }
-  .package-card.selected::before {
-    content: '✓'; position: absolute; top: 12px; right: 12px;
-    width: 24px; height: 24px; background: var(--accent); color: white;
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 700;
-  }
-  .package-tag {
-    display: inline-block; padding: 3px 10px;
-    background: var(--accent-soft); color: var(--accent-dark);
-    font-size: 11px; font-weight: 600; border-radius: 20px;
-    margin-bottom: 10px; letter-spacing: 0.5px;
-  }
-  .package-tag.hot { background: #FFF0E6; color: #E07A3A; }
-  .package-name { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
-  .package-desc { font-size: 13px; color: var(--text-light); line-height: 1.7; margin-bottom: 12px; }
-  .package-includes { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-  .package-includes span {
-    font-size: 11px; padding: 4px 10px; background: #F8F5F2;
-    border-radius: 20px; color: var(--text-light);
-  }
-  .package-price { font-size: 24px; font-weight: 700; color: var(--accent-dark); font-feature-settings: "tnum"; }
-  .package-price .unit { font-size: 13px; font-weight: 400; color: var(--text-light); margin-left: 2px; }
+        <section class="section section--process" id="booking-process">
+          <div class="section-heading">
+            <p class="eyebrow">Process</p>
+            <h2>预约流程</h2>
+          </div>
+          <div class="process-grid" id="process-grid"></div>
+        </section>
 
-  .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .portfolio-item {
-    aspect-ratio: 3/4; border-radius: 12px; overflow: hidden;
-    position: relative; background: var(--accent-soft);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .portfolio-item .placeholder-icon { font-size: 40px; opacity: 0.4; }
-  .portfolio-item .overlay {
-    position: absolute; bottom: 0; left: 0; right: 0; padding: 12px;
-    background: linear-gradient(transparent, rgba(44,36,32,0.6));
-    color: white; font-size: 12px; font-weight: 500;
-  }
-  .portfolio-note {
-    text-align: center; margin-top: 16px; font-size: 12px;
-    color: var(--text-light); padding: 12px;
-    background: var(--card); border-radius: 12px;
-  }
-
-  .contact-card {
-    background: var(--card); border-radius: var(--radius);
-    padding: 24px; text-align: center;
-    box-shadow: var(--shadow); margin-bottom: 14px;
-  }
-  .contact-card .icon { font-size: 40px; margin-bottom: 12px; }
-  .contact-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-  .contact-card p { font-size: 13px; color: var(--text-light); margin-bottom: 16px; }
-
-  .wechat-id {
-    display: inline-block; padding: 10px 24px;
-    background: var(--accent-soft); border-radius: 24px;
-    font-size: 15px; font-weight: 600; color: var(--accent-dark);
-    letter-spacing: 0.5px; user-select: all; word-break: break-all;
-  }
-
-  .step-list {
-    padding: 16px; background: var(--card);
-    border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 14px;
-  }
-  .step-list-title { font-size: 15px; font-weight: 600; margin-bottom: 14px; }
-  .step-item {
-    display: flex; align-items: flex-start; gap: 12px;
-    padding: 8px 0; font-size: 13px; color: var(--text);
-  }
-  .step-item .num {
-    width: 22px; height: 22px; flex-shrink: 0;
-    background: var(--accent); color: white; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 700;
-  }
-
-  .bottom-bar {
-    position: fixed; bottom: 0; left: 0; right: 0;
-    background: var(--card); border-top: 1px solid var(--border);
-    padding: 12px 16px; padding-bottom: max(12px, env(safe-area-inset-bottom));
-    display: flex; align-items: center; justify-content: space-between; z-index: 150;
-  }
-  .bottom-info { font-size: 12px; color: var(--text-light); }
-  .bottom-info .price { font-size: 22px; font-weight: 700; color: var(--accent-dark); font-feature-settings: "tnum"; }
-  .btn-primary {
-    padding: 14px 28px; background: var(--accent); color: white;
-    border: none; border-radius: 28px; font-size: 15px; font-weight: 600;
-    cursor: pointer; transition: all 0.2s;
-    box-shadow: 0 4px 16px rgba(196,149,106,0.3); font-family: var(--font);
-  }
-
-  .btn-secondary {
-    padding: 12px 22px;
-    background: #FFF;
-    color: var(--accent-dark);
-    border: 1.5px solid var(--border);
-    border-radius: 28px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: var(--font);
-  }
-  .btn-secondary:active { transform: scale(0.98); }
-  .btn-primary:active { transform: scale(0.96); background: var(--accent-dark); }
-  .btn-primary:disabled { opacity: 0.4; pointer-events: none; }
-
-  .modal-overlay {
-    display: none; position: fixed; inset: 0;
-    background: rgba(44,36,32,0.5); backdrop-filter: blur(4px);
-    z-index: 200; align-items: flex-end; justify-content: center;
-  }
-  .modal-overlay.show { display: flex; animation: fadeIn 0.2s ease; }
-  .modal-sheet {
-    background: var(--card); border-radius: 24px 24px 0 0;
-    padding: 28px 24px 40px; width: 100%; max-width: 480px;
-    animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    max-height: 85vh; overflow-y: auto;
-  }
-  @keyframes slideUp {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
-  }
-  .modal-handle { width: 40px; height: 4px; background: var(--border); border-radius: 4px; margin: 0 auto 20px; }
-  .modal-title { font-size: 18px; font-weight: 600; text-align: center; margin-bottom: 6px; }
-  .modal-subtitle { font-size: 14px; color: var(--accent-dark); font-weight: 600; text-align: center; margin-bottom: 20px; }
-  .qr-box { width: 200px; height: 200px; margin: 0 auto 16px; border-radius: 16px; overflow: hidden; }
-  .qr-box img { width: 100%; height: 100%; object-fit: contain; }
-  .btn-close-modal {
-    width: 100%; padding: 14px; background: none;
-    border: 1.5px solid var(--border); border-radius: 28px;
-    font-size: 14px; font-weight: 500; color: var(--text-light);
-    cursor: pointer; margin-top: 16px; font-family: var(--font);
-  }
-  .divider-text { text-align: center; margin: 16px 0 12px; font-size: 12px; color: var(--text-light); }
-
-  @media (min-width: 480px) {
-    body { max-width: 480px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.08); min-height: 100vh; }
-  }
-</style>
-</head>
-<body>
-
-<!-- Feishu预约表单（极简后台） -->
-<script>
-  // 你女朋友在飞书里查看预约后台的数据，就看这张表单的提交记录。
-  // 如果以后换表单，只需要改这一行链接。
-  var FEISHU_FORM_URL = 'https://my.feishu.cn/share/base/form/shrcn9vYbWLq3MU3w2zCnHB2f9f';
-</script>
-
-<div class="hero">
-  <div class="hero-avatar">✨</div>
-  <h1>化妆师婵媛</h1>
-  <p class="subtitle">PROFESSIONAL MAKEUP ARTIST</p>
-</div>
-
-<div class="nav-tabs">
-  <button class="nav-tab active" onclick="switchTab('packages')">套餐</button>
-  <button class="nav-tab" onclick="switchTab('portfolio')">作品</button>
-  <button class="nav-tab" onclick="switchTab('contact')">联系</button>
-</div>
-
-<div id="packages" class="section active">
-  <h2 class="section-title">选择套餐</h2>
-  <div class="package-card" onclick="selectPackage(this,'日常妆（基础）',88)">
-    <span class="package-tag">日常</span>
-    <div class="package-name">日常妆（基础）</div>
-    <div class="package-desc">适合日常出行、聚会，自然清透妆感</div>
-    <div class="package-includes"><span>底妆</span><span>眉眼</span><span>唇妆</span><span>定妆</span></div>
-    <div class="package-price">¥88<span class="unit">/次</span></div>
-  </div>
-  <div class="package-card" onclick="selectPackage(this,'日常妆（精致）',128)">
-    <span class="package-tag">日常</span>
-    <div class="package-name">日常妆（精致）</div>
-    <div class="package-desc">适合拍照、重要日常场合，精致持久妆容</div>
-    <div class="package-includes"><span>护肤打底</span><span>底妆</span><span>眉眼精修</span><span>唇妆</span><span>定妆</span></div>
-    <div class="package-price">¥128<span class="unit">/次</span></div>
-  </div>
-  <div class="package-card" onclick="selectPackage(this,'写真/约会妆（基础）',168)">
-    <span class="package-tag hot">🔥 热门</span>
-    <div class="package-name">写真/约会妆（基础）</div>
-    <div class="package-desc">适合写真拍摄、约会、重要场合，精致立体妆容</div>
-    <div class="package-includes"><span>护肤打底</span><span>全脸精修</span><span>眉眼定制</span><span>唇妆</span></div>
-    <div class="package-price">¥168<span class="unit">/次</span></div>
-  </div>
-  <div class="package-card" onclick="selectPackage(this,'写真/约会妆（高定）',268)">
-    <span class="package-tag">高定</span>
-    <div class="package-name">写真/约会妆（高定）</div>
-    <div class="package-desc">适合高级写真、特殊场合，含造型设计及补妆服务</div>
-    <div class="package-includes"><span>护肤打底</span><span>全脸高定妆</span><span>眉眼定制</span><span>唇妆</span><span>造型设计</span><span>补妆1次</span></div>
-    <div class="package-price">¥268<span class="unit">/次</span></div>
-  </div>
-</div>
-
-<div id="portfolio" class="section">
-  <h2 class="section-title">作品展示</h2>
-  <div class="portfolio-grid">
-    <div class="portfolio-item"><span class="placeholder-icon">📷</span><div class="overlay">日常妆容</div></div>
-    <div class="portfolio-item"><span class="placeholder-icon">📷</span><div class="overlay">写真妆容</div></div>
-    <div class="portfolio-item"><span class="placeholder-icon">📷</span><div class="overlay">约会妆容</div></div>
-    <div class="portfolio-item"><span class="placeholder-icon">📷</span><div class="overlay">创意妆容</div></div>
-    <div class="portfolio-item"><span class="placeholder-icon">📷</span><div class="overlay">舞台妆容</div></div>
-    <div class="portfolio-item"><span class="placeholder-icon">📷</span><div class="overlay">复古妆容</div></div>
-  </div>
-  <div class="portfolio-note">💡 将此页面图片占位符替换为真实作品照片即可</div>
-</div>
-
-<div id="contact" class="section">
-  <h2 class="section-title">联系我</h2>
-  <div class="contact-card">
-    <div class="icon">💬</div>
-    <h3>在线预约 / 微信咨询</h3>
-    <p style="margin-bottom:12px;">优先填写预约表单（更快确认档期），也可直接加微信咨询</p>
-    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;">
-      <button class="btn-primary" style="padding:12px 18px;" onclick="openFeishuForm()">立即预约（填写表单）</button>
-      <button class="btn-secondary" onclick="switchTab('packages')">先看套餐</button>
+        <section class="section section--contact" id="contact">
+          <div class="section-heading">
+            <p class="eyebrow">Contact</p>
+            <h2>联系方式</h2>
+            <p>支持微信、手机号与飞书表单预约，适合快速沟通档期与需求。</p>
+          </div>
+          <div class="contact-grid" id="contact-grid"></div>
+        </section>
+      </main>
     </div>
-    <div class="wechat-id">StillinLoveWithYouH</div>
-  </div>
-  <div class="step-list">
-    <div class="step-list-title">预约流程</div>
-    <div class="step-item"><span class="num">1</span><span>选择心仪的套餐</span></div>
-    <div class="step-item"><span class="num">2</span><span>点击「立即预约」填写表单（建议备注套餐名称）</span></div>
-    <div class="step-item"><span class="num">3</span><span>我们会尽快微信联系确认时间与细节</span></div>
-    <div class="step-item"><span class="num">4</span><span>确认后再扫码支付，等待美丽变身 ✨</span></div>
-  </div>
-</div>
 
-<div class="bottom-bar">
-  <div class="bottom-info">
-    <div style="font-size:11px;color:var(--text-light);">已选套餐</div>
-    <div class="price" id="bottomPrice">¥0</div>
-  </div>
-  <button class="btn-primary" id="btnPay" disabled onclick="openBooking()">选择套餐后预约</button>
-</div>
+    <template id="service-card-template">
+      <article class="service-card">
+        <p class="service-card__index"></p>
+        <h3></h3>
+        <p></p>
+      </article>
+    </template>
 
-<div class="modal-overlay" id="bookingModal" onclick="closeModal(event)">
-  <div class="modal-sheet">
-    <div class="modal-handle"></div>
-    <div class="modal-title">填写预约信息</div>
-    <div class="modal-subtitle" id="modalInfo">-</div>
-    <div style="text-align:center;margin-bottom:14px;">
-      <div style="font-size:13px;color:var(--text-light);margin-bottom:10px;">优先填写预约表单，提交后我们会尽快联系确认档期</div>
-      <button class="btn-primary" style="width:100%;" onclick="openFeishuForm()">打开预约表单</button>
-      <div class="divider-text">── 或直接微信咨询 ──</div>
-      <div style="font-size:13px;color:var(--text-light);margin-bottom:10px;">长按复制微信号（建议发送：套餐名称 + 预约日期）</div>
-      <div class="wechat-id" style="font-size:16px;">StillinLoveWithYouH</div>
-    </div>
-    <div class="divider-text">── 确认后扫码支付 ──</div>
-    <div class="qr-box"><img src="alipay-qr.jpeg" alt="支付宝收款码"></div>
-    <div class="step-list" style="box-shadow:none;background:#FBF8F5;margin-top:12px;">
-      <div class="step-item"><span class="num">1</span><span>填写预约表单 / 或微信咨询确认档期</span></div>
-      <div class="step-item"><span class="num">2</span><span>确认后扫码支付对应金额</span></div>
-      <div class="step-item"><span class="num">3</span><span>支付完成后截图发微信确认即可</span></div>
-    </div>
-    <button class="btn-close-modal" onclick="closeBooking()">关闭</button>
-  </div>
-</div>
+    <template id="portfolio-card-template">
+      <article class="portfolio-card">
+        <div class="portfolio-card__image-wrap">
+          <img alt="" loading="lazy" />
+        </div>
+        <div class="portfolio-card__content">
+          <h3></h3>
+          <p></p>
+        </div>
+      </article>
+    </template>
 
-<script>
-  var state = { packageName: '', price: 0 };
+    <template id="process-card-template">
+      <article class="process-card">
+        <p class="process-card__step"></p>
+        <h3></h3>
+        <p></p>
+      </article>
+    </template>
 
-  function openFeishuForm() {
-    // 打开飞书预约表单（新窗口/新标签）
-    // 提示客户在备注里写一下所选套餐名称（因为不同平台对预填支持不一致）
-    window.open(FEISHU_FORM_URL, '_blank');
-  }
+    <template id="contact-card-template">
+      <article class="contact-card">
+        <p class="contact-card__label"></p>
+        <h3></h3>
+        <p></p>
+      </article>
+    </template>
 
-  function switchTab(id) {
-    var sections = document.querySelectorAll('.section');
-    var tabs = document.querySelectorAll('.nav-tab');
-    for (var i = 0; i < sections.length; i++) sections[i].classList.remove('active');
-    for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
-    document.getElementById(id).classList.add('active');
-    event.target.classList.add('active');
-  }
-
-  function selectPackage(el, name, price) {
-    var cards = document.querySelectorAll('.package-card');
-    for (var i = 0; i < cards.length; i++) cards[i].classList.remove('selected');
-    el.classList.add('selected');
-    state.packageName = name;
-    state.price = price;
-    updateBottom();
-  }
-
-  function updateBottom() {
-    var btn = document.getElementById('btnPay');
-    var priceEl = document.getElementById('bottomPrice');
-    priceEl.textContent = state.price > 0 ? '\u00a5' + state.price : '\u00a50';
-    if (state.packageName) {
-      btn.disabled = false;
-      btn.textContent = '\u7acb\u5373\u9884\u7ea6 \u00b7 \u00a5' + state.price;
-    } else {
-      btn.disabled = true;
-      btn.textContent = '\u9009\u62e9\u5957\u9910\u540e\u9884\u7ea6';
-    }
-  }
-
-  function openBooking() {
-    document.getElementById('modalInfo').textContent = state.packageName + ' \u00b7 \u00a5' + state.price;
-    document.getElementById('bookingModal').classList.add('show');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeBooking() {
-    document.getElementById('bookingModal').classList.remove('show');
-    document.body.style.overflow = '';
-  }
-  function closeModal(e) {
-    if (e.target === e.currentTarget) closeBooking();
-  }
-</script>
-</body>
+    <script src="./main.js" type="module"></script>
+  </body>
 </html>
