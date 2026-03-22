@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>婵媛造型 | 品牌展示与美妆预约官网</title>
+    <title>婵媛造型 | 化妆师作品与预约</title>
     <meta
       name="description"
-      content="婵媛造型呈现化妆师个人品牌、作品展示、服务介绍与预约转化，适合移动端浏览与静态部署。"
+      content="婵媛造型展示妆造风格、作品案例、服务内容与预约方式，可先微信沟通，再根据日期、时段、时长和区域确认是否接单。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,7 +35,7 @@
       <main id="top">
         <section class="hero">
           <div class="hero__content">
-            <p class="eyebrow">Makeup Artist Brand Site</p>
+            <p class="eyebrow">高级感妆造 / 北京接单</p>
             <h1 id="brand-title">婵媛造型</h1>
             <p class="hero__lead" id="brand-intro">
               以干净轮廓、柔和质感与高级妆面为核心，为新娘、写真与活动场景提供细腻妆发服务。
@@ -48,16 +48,16 @@
           </div>
           <div class="hero__visual">
             <div class="hero-card hero-card--main">
-              <p class="hero-card__label">品牌主视觉</p>
+              <p class="hero-card__label">主视觉作品</p>
               <h2 id="hero-highlight-title">镜头感与个人气质并重</h2>
               <p id="hero-highlight-copy">
                 适合婚礼、写真、宴会与重要场合，注重持妆表现与镜头质感。
               </p>
             </div>
             <div class="hero-card hero-card--accent">
-              <p class="hero-card__label">品牌定位</p>
-              <p class="hero-card__strong">化妆师个人品牌官网</p>
-              <p class="hero-card__muted">先建立风格感知，再展示服务与作品，最后完成预约转化。</p>
+              <p class="hero-card__label">预约说明</p>
+              <p class="hero-card__strong">可先看作品，再沟通需求</p>
+              <p class="hero-card__muted">可先微信沟通，也可提交预约信息，我们会结合日期、时段、时长和区域判断是否能接。</p>
             </div>
           </div>
         </section>
@@ -66,7 +66,7 @@
           <div class="section-heading">
             <p class="eyebrow">Portfolio</p>
             <h2>作品展示</h2>
-            <p>把作品放在首页核心位置，让来访者先看到风格、质感与擅长方向。</p>
+            <p>不同场景、不同妆感的实际案例，帮助你更直观地判断风格是否适合自己。</p>
           </div>
           <div class="portfolio-grid" id="portfolio-grid"></div>
         </section>
@@ -94,7 +94,7 @@
           <div class="section-heading">
             <p class="eyebrow">Contact</p>
             <h2>联系方式</h2>
-            <p>支持微信沟通与飞书表单预约，适合先了解作品，再确认风格与档期。</p>
+            <p>可先微信沟通风格、时间与区域，再提交预约需求，方便更快确认是否能安排。</p>
           </div>
           <div class="contact-grid" id="contact-grid"></div>
         </section>
@@ -104,7 +104,7 @@
             <p class="eyebrow">Booking</p>
             <h2>预约咨询</h2>
             <p>
-              看完作品与服务后，可以在这里留下基础信息，我们会尽快与你确认档期与妆造需求。
+              提交预约信息后，我们会根据日期、时段、预计服务时长和上门区域综合判断是否能接，并尽快与你确认。
             </p>
           </div>
           <div class="booking-layout">
@@ -142,12 +142,32 @@
                   <option value="全天可协商">全天可协商</option>
                 </select>
               </label>
+              <label>
+                <span>预计服务时长</span>
+                <select name="duration" required>
+                  <option value="">请选择预计服务时长</option>
+                  <option value="1小时内">1小时内</option>
+                  <option value="2小时内">2小时内</option>
+                  <option value="半天（约3-4小时）">半天（约3-4小时）</option>
+                  <option value="全天">全天</option>
+                  <option value="需要沟通确认">需要沟通确认</option>
+                </select>
+              </label>
+              <label>
+                <span>上门地址 / 区域</span>
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="例如：北京市朝阳区 / 海淀区"
+                  required
+                />
+              </label>
               <label class="booking-form__full">
                 <span>备注需求</span>
                 <textarea
                   name="notes"
                   rows="5"
-                  placeholder="例如：婚礼跟妆、偏清透、是否需要妈妈妆/伴娘妆等"
+                  placeholder="例如：活动类型、希望的妆感、是否需要发型、是否多人等"
                 ></textarea>
               </label>
               <div class="booking-form__actions">
@@ -159,7 +179,7 @@
             </form>
 
             <aside class="booking-sidecard">
-              <p class="booking-sidecard__label">预约入口</p>
+              <p class="booking-sidecard__label">咨询方式</p>
               <a class="secondary-button secondary-button--full" id="feishu-link" href="#" target="_blank" rel="noreferrer">
                 直接打开飞书表单
               </a>

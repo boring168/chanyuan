@@ -165,6 +165,8 @@ function buildFeishuHint(formData, bookingUrl) {
     `服务类型：${formData.get("service")}`,
     `预约日期：${formData.get("date")}`,
     `时间段：${formData.get("timeSlot")}`,
+    `预计服务时长：${formData.get("duration")}`,
+    `上门地址/区域：${formData.get("location")}`,
     `备注需求：${formData.get("notes") || "无"}`,
   ].join(" | ");
 
