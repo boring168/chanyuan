@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>禅院造型 | 轻运营版美妆预约官网</title>
+    <title>婵媛造型 | 品牌展示与美妆预约官网</title>
     <meta
       name="description"
-      content="禅院造型提供新娘跟妆、写真造型、活动妆发等预约服务，支持移动端快速预约与作品展示。"
+      content="婵媛造型呈现化妆师个人品牌、作品展示、服务介绍与预约转化，适合移动端浏览与静态部署。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,13 +19,13 @@
   <body>
     <div class="page-shell">
       <header class="site-header">
-        <a class="brand-mark" href="#top" aria-label="禅院造型首页">
+        <a class="brand-mark" href="#top" aria-label="婵媛造型首页">
           <span class="brand-mark__en">CHANYUAN</span>
-          <span class="brand-mark__cn">禅院造型</span>
+          <span class="brand-mark__cn">婵媛造型</span>
         </a>
         <nav class="site-nav" aria-label="主导航">
-          <a href="#services">服务</a>
           <a href="#portfolio">作品</a>
+          <a href="#services">服务</a>
           <a href="#booking-process">流程</a>
           <a href="#contact">联系</a>
         </nav>
@@ -35,37 +35,46 @@
       <main id="top">
         <section class="hero">
           <div class="hero__content">
-            <p class="eyebrow">轻运营版美妆预约官网</p>
-            <h1 id="brand-title">禅院造型</h1>
+            <p class="eyebrow">Makeup Artist Brand Site</p>
+            <h1 id="brand-title">婵媛造型</h1>
             <p class="hero__lead" id="brand-intro">
               以干净轮廓、柔和质感与高级妆面为核心，为新娘、写真与活动场景提供细腻妆发服务。
             </p>
             <div class="hero__service-tags" id="hero-services" aria-label="核心服务"></div>
             <div class="hero__actions">
-              <a class="primary-button" href="#booking">立即预约</a>
               <a class="secondary-button" href="#portfolio">查看作品</a>
+              <a class="primary-button" href="#booking">立即预约</a>
             </div>
           </div>
           <div class="hero__visual">
             <div class="hero-card hero-card--main">
-              <p class="hero-card__label">品牌定位</p>
-              <h2 id="hero-highlight-title">高级感妆造</h2>
+              <p class="hero-card__label">品牌主视觉</p>
+              <h2 id="hero-highlight-title">镜头感与个人气质并重</h2>
               <p id="hero-highlight-copy">
                 适合婚礼、写真、宴会与重要场合，注重持妆表现与镜头质感。
               </p>
             </div>
             <div class="hero-card hero-card--accent">
-              <p class="hero-card__label">预约方式</p>
-              <p class="hero-card__strong">填写需求后跳转飞书表单</p>
-              <p class="hero-card__muted">让客户更快提交，让后续运营更轻松。</p>
+              <p class="hero-card__label">品牌定位</p>
+              <p class="hero-card__strong">化妆师个人品牌官网</p>
+              <p class="hero-card__muted">先建立风格感知，再展示服务与作品，最后完成预约转化。</p>
             </div>
           </div>
+        </section>
+
+        <section class="section section--portfolio" id="portfolio">
+          <div class="section-heading">
+            <p class="eyebrow">Portfolio</p>
+            <h2>作品展示</h2>
+            <p>把作品放在首页核心位置，让来访者先看到风格、质感与擅长方向。</p>
+          </div>
+          <div class="portfolio-grid" id="portfolio-grid"></div>
         </section>
 
         <section class="section section--services" id="services">
           <div class="section-heading">
             <p class="eyebrow">Services</p>
-            <h2>服务内容</h2>
+            <h2>服务项目</h2>
             <p id="services-summary">
               围绕不同场景提供妆面设计、发型设计与整体气质搭配建议。
             </p>
@@ -73,12 +82,29 @@
           <div class="service-grid" id="services-grid"></div>
         </section>
 
+        <section class="section section--process" id="booking-process">
+          <div class="section-heading">
+            <p class="eyebrow">Process</p>
+            <h2>预约流程</h2>
+          </div>
+          <div class="process-grid" id="process-grid"></div>
+        </section>
+
+        <section class="section section--contact" id="contact">
+          <div class="section-heading">
+            <p class="eyebrow">Contact</p>
+            <h2>联系方式</h2>
+            <p>支持微信沟通与飞书表单预约，适合先了解作品，再确认风格与档期。</p>
+          </div>
+          <div class="contact-grid" id="contact-grid"></div>
+        </section>
+
         <section class="section section--booking" id="booking">
           <div class="section-heading">
             <p class="eyebrow">Booking</p>
-            <h2>立即预约</h2>
+            <h2>预约咨询</h2>
             <p>
-              先提交基础信息，我们会尽快与你确认档期。点击提交后将继续跳转到飞书表单完成登记。
+              看完作品与服务后，可以在这里留下基础信息，我们会尽快与你确认档期与妆造需求。
             </p>
           </div>
           <div class="booking-layout">
@@ -140,32 +166,6 @@
               <div class="booking-sidecard__detail" id="quick-contact"></div>
             </aside>
           </div>
-        </section>
-
-        <section class="section section--portfolio" id="portfolio">
-          <div class="section-heading">
-            <p class="eyebrow">Portfolio</p>
-            <h2>作品展示</h2>
-            <p>作品图片、标题与描述从独立配置文件读取，后续替换更省心。</p>
-          </div>
-          <div class="portfolio-grid" id="portfolio-grid"></div>
-        </section>
-
-        <section class="section section--process" id="booking-process">
-          <div class="section-heading">
-            <p class="eyebrow">Process</p>
-            <h2>预约流程</h2>
-          </div>
-          <div class="process-grid" id="process-grid"></div>
-        </section>
-
-        <section class="section section--contact" id="contact">
-          <div class="section-heading">
-            <p class="eyebrow">Contact</p>
-            <h2>联系方式</h2>
-            <p>支持微信、手机号与飞书表单预约，适合快速沟通档期与需求。</p>
-          </div>
-          <div class="contact-grid" id="contact-grid"></div>
         </section>
       </main>
     </div>

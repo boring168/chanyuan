@@ -1,4 +1,4 @@
-# Chanyuan Makeup Static Site
+# Chanyuan Makeup Brand Site
 
 这是一个可直接部署到 Vercel 的静态美妆预约官网，核心目标是：
 
