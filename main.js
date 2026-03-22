@@ -16,6 +16,7 @@ const bookingForm = document.querySelector("#booking-form");
 const feishuLink = document.querySelector("#feishu-link");
 const bookingHint = document.querySelector("#booking-hint");
 const heroFeatureCard = document.querySelector(".hero-card--main");
+const wechatConsultLink = document.querySelector("#wechat-consult-link");
 
 const contentTargets = {
   brandTitle: document.querySelector("#brand-title"),
@@ -203,6 +204,25 @@ async function init() {
 
   feishuLink.href = siteConfig.bookingFormUrl;
   feishuLink.setAttribute("aria-label", "直接打开飞书表单");
+
+  if (wechatConsultLink) {
+    wechatConsultLink.addEventListener("click", async (event) => {
+      event.preventDefault();
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(siteConfig.contact.wechat);
+          wechatConsultLink.textContent = "已复制微信";
+          setTimeout(() => {
+            wechatConsultLink.textContent = "微信咨询";
+          }, 1800);
+        }
+      } catch (error) {
+        console.warn("Unable to copy wechat", error);
+      } finally {
+        window.location.hash = "contact";
+      }
+    });
+  }
 
   hydrateBookingDraft();
 
