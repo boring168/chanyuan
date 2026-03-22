@@ -187,6 +187,19 @@
     cursor: pointer; transition: all 0.2s;
     box-shadow: 0 4px 16px rgba(196,149,106,0.3); font-family: var(--font);
   }
+
+  .btn-secondary {
+    padding: 12px 22px;
+    background: #FFF;
+    color: var(--accent-dark);
+    border: 1.5px solid var(--border);
+    border-radius: 28px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: var(--font);
+  }
+  .btn-secondary:active { transform: scale(0.98); }
   .btn-primary:active { transform: scale(0.96); background: var(--accent-dark); }
   .btn-primary:disabled { opacity: 0.4; pointer-events: none; }
 
@@ -225,6 +238,13 @@
 </style>
 </head>
 <body>
+
+<!-- Feishu预约表单（极简后台） -->
+<script>
+  // 你女朋友在飞书里查看预约后台的数据，就看这张表单的提交记录。
+  // 如果以后换表单，只需要改这一行链接。
+  var FEISHU_FORM_URL = 'https://my.feishu.cn/share/base/form/shrcn9vYbWLq3MU3w2zCnHB2f9f';
+</script>
 
 <div class="hero">
   <div class="hero-avatar">✨</div>
@@ -287,16 +307,20 @@
   <h2 class="section-title">联系我</h2>
   <div class="contact-card">
     <div class="icon">💬</div>
-    <h3>添加微信咨询 / 预约</h3>
-    <p>长按复制微信号，打开微信搜索添加好友</p>
+    <h3>在线预约 / 微信咨询</h3>
+    <p style="margin-bottom:12px;">优先填写预约表单（更快确认档期），也可直接加微信咨询</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;">
+      <button class="btn-primary" style="padding:12px 18px;" onclick="openFeishuForm()">立即预约（填写表单）</button>
+      <button class="btn-secondary" onclick="switchTab('packages')">先看套餐</button>
+    </div>
     <div class="wechat-id">StillinLoveWithYouH</div>
   </div>
   <div class="step-list">
     <div class="step-list-title">预约流程</div>
     <div class="step-item"><span class="num">1</span><span>选择心仪的套餐</span></div>
-    <div class="step-item"><span class="num">2</span><span>添加微信，告知套餐名称</span></div>
-    <div class="step-item"><span class="num">3</span><span>微信沟通确认时间和细节</span></div>
-    <div class="step-item"><span class="num">4</span><span>扫码支付，等待美丽变身 ✨</span></div>
+    <div class="step-item"><span class="num">2</span><span>点击「立即预约」填写表单（建议备注套餐名称）</span></div>
+    <div class="step-item"><span class="num">3</span><span>我们会尽快微信联系确认时间与细节</span></div>
+    <div class="step-item"><span class="num">4</span><span>确认后再扫码支付，等待美丽变身 ✨</span></div>
   </div>
 </div>
 
@@ -311,17 +335,20 @@
 <div class="modal-overlay" id="bookingModal" onclick="closeModal(event)">
   <div class="modal-sheet">
     <div class="modal-handle"></div>
-    <div class="modal-title">添加微信预约</div>
+    <div class="modal-title">填写预约信息</div>
     <div class="modal-subtitle" id="modalInfo">-</div>
-    <div style="text-align:center;margin-bottom:20px;">
-      <div style="font-size:13px;color:var(--text-light);margin-bottom:12px;">长按复制微信号，添加好友后发送套餐名称</div>
+    <div style="text-align:center;margin-bottom:14px;">
+      <div style="font-size:13px;color:var(--text-light);margin-bottom:10px;">优先填写预约表单，提交后我们会尽快联系确认档期</div>
+      <button class="btn-primary" style="width:100%;" onclick="openFeishuForm()">打开预约表单</button>
+      <div class="divider-text">── 或直接微信咨询 ──</div>
+      <div style="font-size:13px;color:var(--text-light);margin-bottom:10px;">长按复制微信号（建议发送：套餐名称 + 预约日期）</div>
       <div class="wechat-id" style="font-size:16px;">StillinLoveWithYouH</div>
     </div>
     <div class="divider-text">── 确认后扫码支付 ──</div>
     <div class="qr-box"><img src="alipay-qr.jpeg" alt="支付宝收款码"></div>
     <div class="step-list" style="box-shadow:none;background:#FBF8F5;margin-top:12px;">
-      <div class="step-item"><span class="num">1</span><span>复制微信号添加好友，告知套餐名称</span></div>
-      <div class="step-item"><span class="num">2</span><span>微信确认时间后，扫码支付对应金额</span></div>
+      <div class="step-item"><span class="num">1</span><span>填写预约表单 / 或微信咨询确认档期</span></div>
+      <div class="step-item"><span class="num">2</span><span>确认后扫码支付对应金额</span></div>
       <div class="step-item"><span class="num">3</span><span>支付完成后截图发微信确认即可</span></div>
     </div>
     <button class="btn-close-modal" onclick="closeBooking()">关闭</button>
@@ -330,6 +357,12 @@
 
 <script>
   var state = { packageName: '', price: 0 };
+
+  function openFeishuForm() {
+    // 打开飞书预约表单（新窗口/新标签）
+    // 提示客户在备注里写一下所选套餐名称（因为不同平台对预填支持不一致）
+    window.open(FEISHU_FORM_URL, '_blank');
+  }
 
   function switchTab(id) {
     var sections = document.querySelectorAll('.section');
@@ -355,7 +388,7 @@
     priceEl.textContent = state.price > 0 ? '\u00a5' + state.price : '\u00a50';
     if (state.packageName) {
       btn.disabled = false;
-      btn.textContent = '\u52a0\u5fae\u4fe1\u9884\u7ea6 \u00b7 \u00a5' + state.price;
+      btn.textContent = '\u7acb\u5373\u9884\u7ea6 \u00b7 \u00a5' + state.price;
     } else {
       btn.disabled = true;
       btn.textContent = '\u9009\u62e9\u5957\u9910\u540e\u9884\u7ea6';
