@@ -26,64 +26,35 @@
         <nav class="topbar__nav" aria-label="主导航">
           <a href="#packages">价目表</a>
           <a href="#portfolio">风格参考</a>
-          <a href="#booking">预约</a>
           <a href="#contact">联系</a>
         </nav>
       </header>
 
       <main id="top">
-        <section class="hero-poster section">
-          <article class="hero-poster__copy card">
-            <p class="eyebrow">PRIVATE MAKEUP MENU</p>
-            <p class="hero-poster__pinyin">SHANG MEN HUA ZHUANG</p>
-            <p class="hero-poster__subtitle">Curated Door-to-Door Makeup Pricing</p>
-            <h1>上门化妆价目表</h1>
-            <p class="hero-poster__brand">婵媛造型</p>
-            <p class="lead" id="brand-intro">
-              预约制上门妆造服务，主打清透、精致、有镜头感的高级妆面，适合日常通勤、证件照、约会生日、写真拍摄、舞台活动与新娘早妆。
-            </p>
-            <div class="chip-list hero-poster__chips" id="hero-tags" aria-label="服务标签"></div>
-            <div class="action-row">
-              <button class="button button--ghost" type="button" data-wechat-copy>
-                微信咨询
-              </button>
-              <a class="button button--primary" href="./booking">去预约</a>
-            </div>
-            <p class="inline-note" id="wechat-copy-status">先看完整价目，再沟通日期、地址、是否需要发型和你想要的妆感。</p>
-          </article>
-
-          <article class="hero-poster__media card">
-            <div class="hero-poster__image-shell">
-              <img id="intro-image" alt="婵媛造型案例作品" loading="eager" />
-            </div>
-            <div class="hero-poster__note">
-              <p class="eyebrow">Curated Pricing</p>
-              <h2 id="hero-highlight-title">精致妆面，上门完成</h2>
-              <p id="hero-highlight-copy">先看完整价目，再沟通日期、地址、是否需要发型和你想要的妆感，会更高效。</p>
-              <ul class="detail-list detail-list--compact hero-poster__list">
-                <li>价目明细完整展示，方便直接宣传与转发</li>
-                <li>服务项目和附加费用分层展示，更容易阅读</li>
-                <li>看中项目后可直接跳转预约或先微信沟通</li>
-              </ul>
-            </div>
-          </article>
-        </section>
+        <div class="page-intro section">
+          <div class="page-intro__text">
+            <p class="page-intro__title">婵媛造型 · 上门化妆</p>
+            <p class="page-intro__tagline" id="brand-intro">预约制上门妆造，主打清透精致、有镜头感的高级妆面。</p>
+          </div>
+          <div class="page-intro__actions">
+            <button class="button button--ghost button--sm" type="button" data-wechat-copy>微信咨询</button>
+            <a class="button button--primary button--sm" href="./booking">立即预约</a>
+          </div>
+        </div>
 
         <section class="section" id="packages">
           <div class="section-head section-head--wide">
             <p class="eyebrow">Price List</p>
             <h2>价目明细</h2>
-            <p id="services-summary">以下价目明细完整保留，既适合直接宣传展示，也方便你先看预算再沟通预约。</p>
+            <p id="services-summary">选好项目后直接点「立即预约」，填写日期、时间和联系方式。</p>
           </div>
-          <div class="pricing-layout">
-            <div class="package-grid" id="services-grid"></div>
-            <article class="pricing-side card">
-              <p class="eyebrow">Supplement</p>
-              <h3>附加费用 / 说明</h3>
-              <p class="section-copy">以下内容也完整展示，方便宣传时一次性说清楚。</p>
-              <ul class="pricing-note-list" id="extras-list"></ul>
-            </article>
-          </div>
+          <div class="svc-list" id="services-grid"></div>
+
+          <article class="extras-panel card" id="extras-panel">
+            <p class="eyebrow">Supplement</p>
+            <h3>附加费用 / 说明</h3>
+            <ul class="pricing-note-list" id="extras-list"></ul>
+          </article>
         </section>
 
         <section class="section" id="portfolio">
@@ -93,28 +64,6 @@
             <p>案例做氛围参考，方便你判断自己更偏清透、甜感、上镜还是舞台表现力路线。</p>
           </div>
           <div class="portfolio-grid" id="portfolio-grid"></div>
-        </section>
-
-        <section class="section" id="booking">
-          <div class="section-head">
-            <p class="eyebrow">Booking</p>
-            <h2>看好项目后再填预约</h2>
-            <p>确认价目后，可以直接填写日期、时间段、区域和联系方式，也可以先微信沟通再预约。</p>
-          </div>
-          <div class="booking-overview card">
-            <div class="booking-overview__list" id="process-grid"></div>
-          </div>
-          <div class="cta-panel card">
-            <div>
-              <p class="eyebrow">Next Step</p>
-              <h3>已经选好项目？</h3>
-              <p>可以直接去预约页填写；如果还想先确认妆感、日期、区域或是否需要发型，也可以先加微信。</p>
-            </div>
-            <div class="action-row">
-              <button class="button button--ghost" type="button" data-wechat-copy>微信咨询</button>
-              <a class="button button--primary" href="./booking">去预约</a>
-            </div>
-          </div>
         </section>
 
         <section class="section" id="contact">
@@ -170,7 +119,7 @@
         <button class="button button--ghost mobile-action-bar__button" type="button" data-wechat-copy>
           微信咨询
         </button>
-        <a class="button button--primary mobile-action-bar__button" href="./booking">去预约</a>
+        <a class="button button--primary mobile-action-bar__button" href="./booking">立即预约</a>
       </div>
     </div>
 
@@ -186,28 +135,20 @@
       </article>
     </template>
 
-    <template id="service-card-template">
-      <article class="package-card card">
-        <div class="package-card__head">
-          <p class="package-card__tag"></p>
-          <p class="package-card__price"></p>
+    <template id="svc-card-template">
+      <article class="svc-card card">
+        <div class="svc-card__body">
+          <div class="svc-card__meta">
+            <span class="svc-card__tag"></span>
+            <span class="svc-card__duration"></span>
+          </div>
+          <h3 class="svc-card__title"></h3>
+          <p class="svc-card__scene"></p>
         </div>
-        <p class="package-card__line"></p>
-        <h3></h3>
-        <p class="package-card__desc"></p>
-        <div class="package-card__includes"></div>
-        <div class="package-card__actions">
-          <a class="button button--primary" data-service-pick>选这个项目</a>
-          <a class="button button--secondary" href="./booking">去预约</a>
+        <div class="svc-card__aside">
+          <p class="svc-card__price"></p>
+          <a class="button button--primary button--sm" data-service-pick>立即预约</a>
         </div>
-      </article>
-    </template>
-
-    <template id="process-card-template">
-      <article class="step-inline">
-        <p class="step-card__no"></p>
-        <h3></h3>
-        <p></p>
       </article>
     </template>
 

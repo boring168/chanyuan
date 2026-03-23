@@ -32,30 +32,28 @@
       </header>
 
       <main class="subpage-main">
-        <section class="subpage-hero card subpage-hero--compact">
-          <div>
-            <p class="eyebrow">Booking</p>
-            <h1>站内预约</h1>
-            <p>先选对应价目项目，再填写日期、时间段、预计服务时长、区域和联系方式，预约会直接写入系统。</p>
+        <div class="booking-header">
+          <div class="booking-header__text">
+            <p class="eyebrow">婵媛造型 · 在线预约</p>
+            <h1 class="booking-header__title">预约上门化妆</h1>
           </div>
-          <div class="subpage-hero__tips">
-            <span class="chip chip--soft">先选项目</span>
-            <span class="chip chip--soft">再填日期</span>
-            <span class="chip chip--soft">站内直接提交</span>
-          </div>
-        </section>
+          <a class="button button--ghost button--sm" href="./index.html">← 返回服务列表</a>
+        </div>
 
         <section class="service-picks card">
           <div>
             <p class="eyebrow">Choose Service</p>
-            <h2>先选一个项目</h2>
-            <p class="section-copy">先点中最接近的价目项目，再往下填写预约信息，会更快一些。</p>
+            <p class="section-copy">先点中最接近的价目项目，再往下填写预约信息。</p>
           </div>
           <div class="service-picks__list" id="service-picks"></div>
         </section>
 
         <section class="booking-page-grid">
           <form class="form-card card" id="booking-form">
+            <div class="form-card__full form-section-label">
+              <p class="eyebrow">填写预约信息</p>
+            </div>
+
             <label>
               <span>服务类型</span>
               <select name="service" id="service-select" required>
@@ -116,9 +114,9 @@
             </label>
 
             <div class="form-card__full form-card__actions">
-              <button class="button button--primary" type="submit">提交预约</button>
+              <button class="button button--primary form-submit-btn" type="submit">确认提交预约</button>
               <button class="button button--ghost" type="button" data-wechat-copy>复制微信号</button>
-              <p class="inline-note" id="booking-hint">如果还想先聊风格，可以先复制微信号沟通。</p>
+              <p class="inline-note" id="booking-hint">提交后可继续微信沟通具体细节。</p>
               <p class="status-text" id="booking-status" role="status" aria-live="polite"></p>
             </div>
           </form>

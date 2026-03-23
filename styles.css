@@ -847,3 +847,199 @@ h1 {
     align-items: stretch;
   }
 }
+
+/* ── page-intro (compact brand header replacing hero-poster) ─────────── */
+
+.page-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 20px 22px;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(145deg, rgba(255, 249, 242, 0.92), rgba(249, 238, 229, 0.78)),
+    var(--card);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(24px);
+  box-shadow: var(--shadow);
+}
+
+.page-intro__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.page-intro__title {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(22px, 5vw, 30px);
+  font-weight: 600;
+  color: var(--accent-deep);
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.page-intro__tagline {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.page-intro__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ── svc-list / svc-card (service listing cards) ─────────────────────── */
+
+.svc-list {
+  display: grid;
+  gap: 10px;
+}
+
+.svc-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.svc-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(72, 48, 40, 0.12);
+}
+
+.svc-card__body {
+  flex: 1;
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.svc-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.svc-card__tag {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: var(--accent);
+}
+
+.svc-card__duration {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 252, 248, 0.72);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.svc-card__title {
+  margin: 2px 0 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(17px, 4vw, 20px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.svc-card__scene {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.svc-card__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.svc-card__price {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(22px, 5vw, 28px);
+  font-weight: 600;
+  color: var(--accent-deep);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ── extras-panel ────────────────────────────────────────────────────── */
+
+.extras-panel {
+  margin-top: 10px;
+  padding: 20px 22px;
+  border-radius: var(--radius-md);
+}
+
+.extras-panel h3 {
+  margin: 8px 0 0;
+  font-size: 20px;
+}
+
+/* ── booking-header (replaces subpage-hero on booking.html) ──────────── */
+
+.booking-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 22px;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(145deg, rgba(255, 249, 242, 0.92), rgba(249, 238, 229, 0.78)),
+    var(--card);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(24px);
+  box-shadow: var(--shadow);
+}
+
+.booking-header__title {
+  margin: 6px 0 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(26px, 7vw, 36px);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.form-section-label {
+  margin-bottom: -4px;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 16px 22px;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+}
+
+@media (min-width: 760px) {
+  .svc-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .svc-list {
+    grid-template-columns: 1fr;
+  }
+}
