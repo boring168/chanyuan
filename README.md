@@ -44,6 +44,11 @@
 - `SUPABASE_SERVICE_ROLE_KEY`
 - `BOOKINGS_ADMIN_KEY`
 
+`SUPABASE_SERVICE_ROLE_KEY` 这里不要填 `anon` / `publishable`。
+
+- 如果你的 Supabase 项目还能看到 `Legacy API Keys`，请复制 `service_role`
+- 如果你的项目使用新版 key，也可以把 `secret` key 填到这个变量里
+
 如果要开邮件通知，再额外配置：
 
 - `RESEND_API_KEY`

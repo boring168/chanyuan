@@ -19,13 +19,86 @@ function escapeHtml(value = "") {
 
 function getEnv() {
   return {
-    supabaseUrl: process.env.SUPABASE_URL,
-    supabaseKey: process.env.SUPABASE_SERVICE_ROLE_KEY,
-    resendApiKey: process.env.RESEND_API_KEY,
-    notifyEmail: process.env.BOOKING_NOTIFY_EMAIL,
-    fromEmail: process.env.BOOKING_FROM_EMAIL,
-    adminKey: process.env.BOOKINGS_ADMIN_KEY,
+    supabaseUrl: String(process.env.SUPABASE_URL || "").trim(),
+    supabaseKey: String(process.env.SUPABASE_SERVICE_ROLE_KEY || "").trim(),
+    resendApiKey: String(process.env.RESEND_API_KEY || "").trim(),
+    notifyEmail: String(process.env.BOOKING_NOTIFY_EMAIL || "").trim(),
+    fromEmail: String(process.env.BOOKING_FROM_EMAIL || "").trim(),
+    adminKey: String(process.env.BOOKINGS_ADMIN_KEY || "").trim(),
   };
+}
+
+function decodeJwtPayload(token) {
+  try {
+    const [, payload] = String(token).split(".");
+    if (!payload) {
+      return null;
+    }
+
+    const normalized = payload.replace(/-/g, "+").replace(/_/g, "/");
+    const padded = normalized.padEnd(normalized.length + ((4 - (normalized.length % 4)) % 4), "=");
+    return JSON.parse(Buffer.from(padded, "base64").toString("utf8"));
+  } catch {
+    return null;
+  }
+}
+
+function resolveSupabaseKeyMode(key) {
+  if (!key) {
+    return { type: "missing", elevated: false };
+  }
+
+  if (key.startsWith("sb_secret_")) {
+    return { type: "secret", elevated: true };
+  }
+
+  if (key.startsWith("sb_publishable_")) {
+    return { type: "publishable", elevated: false };
+  }
+
+  const parts = key.split(".");
+  if (parts.length === 3) {
+    const payload = decodeJwtPayload(key);
+    const role = payload?.role;
+
+    if (role === "service_role") {
+      return { type: "service_role_jwt", elevated: true };
+    }
+
+    if (role === "anon") {
+      return { type: "anon_jwt", elevated: false };
+    }
+
+    return { type: "jwt", elevated: false, role };
+  }
+
+  return { type: "unknown", elevated: false };
+}
+
+function createSupabaseHeaders(key, extraHeaders = {}) {
+  const keyMode = resolveSupabaseKeyMode(key);
+
+  if (keyMode.type === "publishable" || keyMode.type === "anon_jwt") {
+    throw new Error(
+      "当前 SUPABASE_SERVICE_ROLE_KEY 配置成了公开 key，请在 Vercel 改成 service_role 或 secret key。"
+    );
+  }
+
+  if (keyMode.type === "missing") {
+    throw new Error("缺少 SUPABASE_SERVICE_ROLE_KEY。");
+  }
+
+  const headers = {
+    apikey: key,
+    ...extraHeaders,
+  };
+
+  // Legacy service_role JWT 需要继续作为 Bearer 发送；新版 secret key 只走 apikey 即可。
+  if (keyMode.type === "service_role_jwt" || keyMode.type === "jwt") {
+    headers.Authorization = `Bearer ${key}`;
+  }
+
+  return headers;
 }
 
 function parseCookies(cookieHeader = "") {
@@ -64,12 +137,10 @@ function validateBooking(payload) {
 async function insertBooking(env, booking) {
   const response = await fetch(`${env.supabaseUrl}/rest/v1/bookings`, {
     method: "POST",
-    headers: {
-      apikey: env.supabaseKey,
-      Authorization: `Bearer ${env.supabaseKey}`,
+    headers: createSupabaseHeaders(env.supabaseKey, {
       "Content-Type": "application/json",
       Prefer: "return=representation",
-    },
+    }),
     body: JSON.stringify([booking]),
   });
 
@@ -86,10 +157,7 @@ async function fetchBookings(env) {
   const response = await fetch(
     `${env.supabaseUrl}/rest/v1/bookings?select=id,name,contact,service,date,time_slot,duration,location,notes,created_at&order=created_at.desc`,
     {
-      headers: {
-        apikey: env.supabaseKey,
-        Authorization: `Bearer ${env.supabaseKey}`,
-      },
+      headers: createSupabaseHeaders(env.supabaseKey),
     }
   );
 
