@@ -137,6 +137,9 @@
 
     <template id="svc-card-template">
       <article class="svc-card card">
+        <div class="svc-card__img-wrap">
+          <img class="svc-card__img" alt="" loading="lazy" />
+        </div>
         <div class="svc-card__body">
           <div class="svc-card__meta">
             <span class="svc-card__tag"></span>
@@ -147,7 +150,7 @@
         </div>
         <div class="svc-card__aside">
           <p class="svc-card__price"></p>
-          <a class="button button--primary button--sm" data-service-pick>立即预约</a>
+          <a class="button button--primary button--sm svc-card__book-btn" data-service-pick>立即预约</a>
         </div>
       </article>
     </template>

@@ -21,6 +21,10 @@ const paymentCopy = document.querySelector("#payment-copy");
 
 const portfolioFallbackImage = "./assets/portfolio/look-01.svg";
 
+// Warm-toned silhouette placeholder shown until real service photos are added
+const SVC_PLACEHOLDER =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' fill='%23f5ede4'/%3E%3Ccircle cx='48' cy='36' r='14' fill='%23d8bba4' opacity='0.5'/%3E%3Cellipse cx='48' cy='70' rx='21' ry='13' fill='%23d8bba4' opacity='0.38'/%3E%3C/svg%3E";
+
 function setSafeImage(image, src, alt) {
   image.src = src;
   image.alt = alt;
@@ -67,11 +71,34 @@ function renderServices(services) {
 
   services.forEach((service) => {
     const card = svcCardTemplate.content.firstElementChild.cloneNode(true);
+
+    // Image with per-service path; falls back to warm placeholder
+    const imgEl = card.querySelector(".svc-card__img");
+    const svcSlug = (service.tag || "").toLowerCase().replace(/[^a-z0-9]/g, "-");
+    imgEl.alt = service.title;
+    imgEl.src = service.image || `./assets/services/${svcSlug}.jpg`;
+    imgEl.onerror = () => {
+      imgEl.onerror = null;
+      imgEl.src = SVC_PLACEHOLDER;
+    };
+
     card.querySelector(".svc-card__tag").textContent = service.tag;
     card.querySelector(".svc-card__duration").textContent = service.duration || "";
     card.querySelector(".svc-card__title").textContent = service.title;
     card.querySelector(".svc-card__scene").textContent = service.description;
-    card.querySelector(".svc-card__price").textContent = service.price;
+
+    // Price: split number from 元 so they can be sized independently
+    const priceEl = card.querySelector(".svc-card__price");
+    const priceMatch = service.price.match(/^(\d[\d,]*)\s*(元)(.*)?$/);
+    if (priceMatch) {
+      priceEl.innerHTML =
+        `<span class="svc-card__price-num">${priceMatch[1]}</span>` +
+        `<span class="svc-card__price-unit"> ${priceMatch[2]}</span>` +
+        (priceMatch[3] ? `<span class="svc-card__price-suffix">${priceMatch[3]}</span>` : "");
+    } else {
+      priceEl.textContent = service.price;
+    }
+
     const link = card.querySelector("[data-service-pick]");
     link.href = `./booking?service=${encodeURIComponent(service.fullLine || service.title)}`;
     servicesGrid.appendChild(card);
