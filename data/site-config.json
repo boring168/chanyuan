@@ -18,6 +18,7 @@
       "includes": ["清透妆感", "日常出行", "上门服务"],
       "price": "99 元",
       "duration": "约 45 分钟",
+      "image": "./assets/portfolio/daily-look.jpg",
       "fullLine": "日常淡妆/通勤妆：99 元"
     },
     {
@@ -27,6 +28,7 @@
       "includes": ["上镜修饰", "利落妆感", "镜头友好"],
       "price": "89 元",
       "duration": "约 45 分钟",
+      "image": "./assets/portfolio/photo-look.jpg",
       "fullLine": "证件照妆/上镜妆：89 元"
     },
     {
@@ -36,6 +38,7 @@
       "includes": ["甜感妆容", "氛围妆面", "聚会生日"],
       "price": "139 元",
       "duration": "约 1 小时",
+      "image": "./assets/portfolio/date-look.jpg",
       "fullLine": "约会妆/生日妆：139 元"
     },
     {
@@ -45,6 +48,7 @@
       "includes": ["拍摄妆面", "镜头质感", "不含发型"],
       "price": "159 元",
       "duration": "约 1–1.5 小时",
+      "image": "./assets/portfolio/creative-look.jpg",
       "fullLine": "写真妆（不含发型）：159 元"
     },
     {
@@ -54,6 +58,7 @@
       "includes": ["拍摄妆面", "简单发型", "整体造型"],
       "price": "199 元",
       "duration": "约 2 小时",
+      "image": "./assets/portfolio/photo-look.jpg",
       "fullLine": "写真妆+简单发型：199 元"
     },
     {
@@ -63,6 +68,7 @@
       "includes": ["婚礼场景", "温柔妆感", "正式场合"],
       "price": "129 元",
       "duration": "约 1 小时",
+      "image": "./assets/portfolio/vintage-look.jpg",
       "fullLine": "伴娘妆/妈妈妆：129 元"
     },
     {
@@ -72,6 +78,7 @@
       "includes": ["演出比赛", "舞台妆效", "儿童场景"],
       "price": "79 元",
       "duration": "约 30–45 分钟",
+      "image": "./assets/portfolio/stage-look.jpg",
       "fullLine": "儿童舞台妆：79 元"
     },
     {
@@ -81,6 +88,7 @@
       "includes": ["舞台表现", "活动主持", "镜头妆效"],
       "price": "169 元",
       "duration": "约 1–1.5 小时",
+      "image": "./assets/portfolio/stage-look.jpg",
       "fullLine": "成人舞台妆/主持妆：169 元"
     },
     {
@@ -90,6 +98,7 @@
       "includes": ["婚礼晨妆", "精致妆面", "不含跟妆"],
       "price": "299 元",
       "duration": "约 2–2.5 小时",
+      "image": "./assets/portfolio/vintage-look.jpg",
       "fullLine": "新娘早妆（不含跟妆）：299 元"
     },
     {
@@ -99,6 +108,7 @@
       "includes": ["妆感预演", "风格确认", "定妆可抵"],
       "price": "80 元",
       "duration": "约 1 小时",
+      "image": "./assets/portfolio/date-look.jpg",
       "fullLine": "试妆费：80 元（定妆可抵）"
     }
   ],
