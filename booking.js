@@ -34,23 +34,24 @@ function renderServices(services) {
   servicePicks.innerHTML = "";
 
   services.forEach((service) => {
+    const serviceValue = service.fullLine || service.title;
     const option = document.createElement("option");
-    option.value = service.title;
-    option.textContent = service.title;
+    option.value = serviceValue;
+    option.textContent = serviceValue;
     serviceSelect.appendChild(option);
 
     const button = document.createElement("button");
     button.type = "button";
     button.className = "service-pick";
-    button.dataset.value = service.title;
+    button.dataset.value = serviceValue;
     button.innerHTML = `
       <span class="service-pick__tag">${service.tag}</span>
       <strong>${service.title}</strong>
-      <span>${service.description}</span>
+      <span>${service.fullLine || service.description}</span>
     `;
     button.addEventListener("click", () => {
-      serviceSelect.value = service.title;
-      setSelectedPick(service.title);
+      serviceSelect.value = serviceValue;
+      setSelectedPick(serviceValue);
       persistDraft();
       bookingForm.scrollIntoView({ behavior: "smooth", block: "start" });
     });
@@ -76,7 +77,8 @@ function hydrateDraft() {
 function applyServiceFromQuery() {
   const params = new URLSearchParams(window.location.search);
   const service = params.get("service");
-  if (service && serviceSelect.querySelector(`option[value="${service}"]`)) {
+  const hasMatchingOption = Array.from(serviceSelect.options).some((option) => option.value === service);
+  if (service && hasMatchingOption) {
     serviceSelect.value = service;
   }
 }

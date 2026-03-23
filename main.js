@@ -9,6 +9,7 @@ const portfolioGrid = document.querySelector("#portfolio-grid");
 const servicesGrid = document.querySelector("#services-grid");
 const processGrid = document.querySelector("#process-grid");
 const heroTags = document.querySelector("#hero-tags");
+const extrasList = document.querySelector("#extras-list");
 
 const brandIntro = document.querySelector("#brand-intro");
 const heroTitle = document.querySelector("#hero-highlight-title");
@@ -83,6 +84,7 @@ function renderServices(services) {
     const card = serviceTemplate.content.firstElementChild.cloneNode(true);
     card.querySelector(".package-card__tag").textContent = service.tag;
     card.querySelector(".package-card__price").textContent = service.price;
+    card.querySelector(".package-card__line").textContent = service.fullLine || `${service.title}：${service.price}`;
     card.querySelector("h3").textContent = service.title;
     card.querySelector(".package-card__desc").textContent = service.description;
 
@@ -95,8 +97,21 @@ function renderServices(services) {
     });
 
     const servicePick = card.querySelector("[data-service-pick]");
-    servicePick.href = `./booking?service=${encodeURIComponent(service.title)}`;
+    servicePick.href = `./booking?service=${encodeURIComponent(service.fullLine || service.title)}`;
     servicesGrid.appendChild(card);
+  });
+}
+
+function renderExtras(items) {
+  if (!extrasList) {
+    return;
+  }
+
+  extrasList.innerHTML = "";
+  items.forEach((item) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = item;
+    extrasList.appendChild(listItem);
   });
 }
 
@@ -127,6 +142,7 @@ async function init() {
 
   renderIntro(config, portfolioItems);
   renderServices(config.services);
+  renderExtras(config.extras || []);
   renderPortfolio(portfolioItems);
   renderProcess(config.bookingProcess);
 

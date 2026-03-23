@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>婵媛造型 | 套餐与预约</title>
+    <title>婵媛造型 | 上门化妆价目表</title>
     <meta
       name="description"
-      content="婵媛造型提供日常、写真、约会、创意、舞台、复古与新娘跟妆服务。先看套餐，再微信咨询或站内预约。"
+      content="婵媛造型上门化妆价目表，包含日常、证件照、约会、写真、舞台与新娘早妆等项目，支持微信咨询与站内预约。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,62 +24,73 @@
           <span class="brand__cn">婵媛造型</span>
         </a>
         <nav class="topbar__nav" aria-label="主导航">
-          <a href="#packages">套餐</a>
-          <a href="#portfolio">作品</a>
+          <a href="#packages">价目表</a>
+          <a href="#portfolio">风格参考</a>
           <a href="#booking">预约</a>
           <a href="#contact">联系</a>
         </nav>
       </header>
 
       <main id="top">
-        <section class="entry-stack section">
-          <article class="entry-card entry-card--summary card">
-            <p class="eyebrow">CHANYUAN MAKEUP</p>
-            <h1>婵媛造型</h1>
+        <section class="hero-poster section">
+          <article class="hero-poster__copy card">
+            <p class="eyebrow">PRIVATE MAKEUP MENU</p>
+            <p class="hero-poster__pinyin">SHANG MEN HUA ZHUANG</p>
+            <p class="hero-poster__subtitle">Curated Door-to-Door Makeup Pricing</p>
+            <h1>上门化妆价目表</h1>
+            <p class="hero-poster__brand">婵媛造型</p>
             <p class="lead" id="brand-intro">
-              清透、柔和、质感系妆发定制，适用于写真拍摄、约会出行、活动妆造与新娘跟妆。
+              预约制上门妆造服务，主打清透、精致、有镜头感的高级妆面，适合日常通勤、证件照、约会生日、写真拍摄、舞台活动与新娘早妆。
             </p>
-            <div class="chip-list" id="hero-tags" aria-label="服务标签"></div>
+            <div class="chip-list hero-poster__chips" id="hero-tags" aria-label="服务标签"></div>
             <div class="action-row">
               <button class="button button--ghost" type="button" data-wechat-copy>
                 微信咨询
               </button>
               <a class="button button--primary" href="./booking">去预约</a>
             </div>
-            <p class="inline-note" id="wechat-copy-status">先看服务卡片，再决定是先聊还是直接填预约。</p>
+            <p class="inline-note" id="wechat-copy-status">先看完整价目，再沟通日期、地址、是否需要发型和你想要的妆感。</p>
           </article>
 
-          <article class="entry-card entry-card--case card">
-            <div class="entry-card__body">
-              <p class="eyebrow">Quick Note</p>
-              <h2 id="hero-highlight-title">先看适合的套餐，再决定怎么约</h2>
-              <p id="hero-highlight-copy">先判断自己更偏日常、写真、约会还是舞台场景，再微信沟通或站内提交预约。</p>
-              <ul class="detail-list detail-list--compact">
-                <li>微信咨询优先，方便先聊妆感和日期</li>
-                <li>站内预约直接记录，不用跳到别的平台</li>
-                <li>会按日期、时间段、时长和区域确认能否安排</li>
-              </ul>
-            </div>
-            <div class="entry-card__media">
+          <article class="hero-poster__media card">
+            <div class="hero-poster__image-shell">
               <img id="intro-image" alt="婵媛造型案例作品" loading="eager" />
+            </div>
+            <div class="hero-poster__note">
+              <p class="eyebrow">Curated Pricing</p>
+              <h2 id="hero-highlight-title">精致妆面，上门完成</h2>
+              <p id="hero-highlight-copy">先看完整价目，再沟通日期、地址、是否需要发型和你想要的妆感，会更高效。</p>
+              <ul class="detail-list detail-list--compact hero-poster__list">
+                <li>价目明细完整展示，方便直接宣传与转发</li>
+                <li>服务项目和附加费用分层展示，更容易阅读</li>
+                <li>看中项目后可直接跳转预约或先微信沟通</li>
+              </ul>
             </div>
           </article>
         </section>
 
         <section class="section" id="packages">
-          <div class="section-head">
-            <p class="eyebrow">Packages</p>
-            <h2>套餐 / 服务</h2>
-            <p id="services-summary">把常约的妆造场景拆成卡片，先看适合自己哪一类，再决定要不要约。</p>
+          <div class="section-head section-head--wide">
+            <p class="eyebrow">Price List</p>
+            <h2>价目明细</h2>
+            <p id="services-summary">以下价目明细完整保留，既适合直接宣传展示，也方便你先看预算再沟通预约。</p>
           </div>
-          <div class="package-grid" id="services-grid"></div>
+          <div class="pricing-layout">
+            <div class="package-grid" id="services-grid"></div>
+            <article class="pricing-side card">
+              <p class="eyebrow">Supplement</p>
+              <h3>附加费用 / 说明</h3>
+              <p class="section-copy">以下内容也完整展示，方便宣传时一次性说清楚。</p>
+              <ul class="pricing-note-list" id="extras-list"></ul>
+            </article>
+          </div>
         </section>
 
         <section class="section" id="portfolio">
           <div class="section-head">
-            <p class="eyebrow">Portfolio</p>
-            <h2>作品展示</h2>
-            <p>案例只做辅助参考，方便你更快判断妆感和风格是否适合自己。</p>
+            <p class="eyebrow">Lookbook</p>
+            <h2>风格参考</h2>
+            <p>案例做氛围参考，方便你判断自己更偏清透、甜感、上镜还是舞台表现力路线。</p>
           </div>
           <div class="portfolio-grid" id="portfolio-grid"></div>
         </section>
@@ -87,8 +98,8 @@
         <section class="section" id="booking">
           <div class="section-head">
             <p class="eyebrow">Booking</p>
-            <h2>看好服务后再填预约</h2>
-            <p>服务、日期、时间段、预计时长、区域和联系方式都在站内填写，提交后会直接记录。</p>
+            <h2>看好项目后再填预约</h2>
+            <p>确认价目后，可以直接填写日期、时间段、区域和联系方式，也可以先微信沟通再预约。</p>
           </div>
           <div class="booking-overview card">
             <div class="booking-overview__list" id="process-grid"></div>
@@ -96,8 +107,8 @@
           <div class="cta-panel card">
             <div>
               <p class="eyebrow">Next Step</p>
-              <h3>已经选好套餐？</h3>
-              <p>可以直接去预约页填写；如果还想先确认妆感、日期或区域，也可以先加微信。</p>
+              <h3>已经选好项目？</h3>
+              <p>可以直接去预约页填写；如果还想先确认妆感、日期、区域或是否需要发型，也可以先加微信。</p>
             </div>
             <div class="action-row">
               <button class="button button--ghost" type="button" data-wechat-copy>微信咨询</button>
@@ -110,13 +121,13 @@
           <div class="section-head">
             <p class="eyebrow">Contact</p>
             <h2>联系与付款</h2>
-            <p>微信是最直接的沟通方式，确认档期后可扫码付款，整个流程尽量简单清楚。</p>
+            <p>微信是最直接的沟通方式，确认档期后可扫码付款，宣传页、咨询和预约流程会尽量清楚直观。</p>
           </div>
           <div class="contact-layout">
             <article class="card contact-card">
               <p class="eyebrow">Wechat</p>
               <h3 id="wechat-value">StillinLoveWithYouH</h3>
-              <p id="contact-note">可先微信沟通妆感、日期、区域与现场安排，再决定是否提交预约。</p>
+              <p id="contact-note">看中项目后可先微信沟通日期、区域、是否需要发型以及你想要的妆感。</p>
               <div class="action-row">
                 <button class="button button--primary" type="button" data-wechat-copy>
                   复制微信号
@@ -127,12 +138,12 @@
 
             <article class="card contact-card">
               <p class="eyebrow">Service Area</p>
-              <h3 id="city-value">北京</h3>
-              <p>提交预约后，会结合日期、时段、预计时长和区域确认是否可以安排。</p>
+              <h3 id="city-value">市区上门</h3>
+              <p>提交预约后，会结合日期、时段、预计时长、区域和附加需求确认是否可以安排。</p>
               <ul class="detail-list">
-                <li>预约信息站内提交</li>
-                <li>提交后可继续微信沟通</li>
-                <li>记录会直接写入预约表</li>
+                <li>预约信息站内提交，记录更清楚</li>
+                <li>提交后可继续微信沟通细节</li>
+                <li>可同步确认上门费、发型和睫毛需求</li>
               </ul>
             </article>
           </div>
@@ -152,7 +163,7 @@
 
       <footer class="site-footer">
         <p>婵媛造型</p>
-        <p>北京接单 · 微信咨询优先</p>
+        <p>预约制上门妆造 · 微信咨询优先</p>
       </footer>
 
       <div class="mobile-action-bar">
@@ -181,11 +192,12 @@
           <p class="package-card__tag"></p>
           <p class="package-card__price"></p>
         </div>
+        <p class="package-card__line"></p>
         <h3></h3>
         <p class="package-card__desc"></p>
         <div class="package-card__includes"></div>
         <div class="package-card__actions">
-          <a class="button button--primary" data-service-pick>选择套餐</a>
+          <a class="button button--primary" data-service-pick>选这个项目</a>
           <a class="button button--secondary" href="./booking">去预约</a>
         </div>
       </article>
