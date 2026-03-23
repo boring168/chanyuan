@@ -1,13 +1,13 @@
 :root {
-  --bg: #f7f1ec;
-  --bg-soft: #fffaf7;
-  --card: rgba(255, 250, 246, 0.92);
-  --line: rgba(116, 91, 84, 0.12);
+  --bg: #f8f3ee;
+  --bg-soft: #fffaf6;
+  --card: rgba(255, 250, 246, 0.96);
+  --line: rgba(116, 91, 84, 0.1);
   --text: #2f2727;
   --muted: #7a6a66;
-  --accent: #8e665d;
-  --accent-deep: #6f4f48;
-  --shadow: 0 18px 44px rgba(103, 71, 64, 0.1);
+  --accent: #8b645b;
+  --accent-deep: #6f514a;
+  --shadow: 0 12px 28px rgba(103, 71, 64, 0.08);
   --success: #4f6c59;
   --error: #a24e49;
   --radius-lg: 28px;
@@ -29,21 +29,7 @@ body {
   min-height: 100vh;
   font-family: "Noto Sans SC", sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(circle at top, rgba(217, 191, 179, 0.36), transparent 36%),
-    linear-gradient(180deg, #fcf6f2 0%, #f7f1ec 52%, #f4ede8 100%);
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
-  background-size: 30px 30px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.56), transparent 78%);
+  background: linear-gradient(180deg, #fbf7f3 0%, #f8f3ee 42%, #f4ede7 100%);
 }
 
 a {
@@ -80,7 +66,8 @@ button {
   z-index: 20;
   display: grid;
   gap: 12px;
-  padding: 12px 0 16px;
+  padding: 12px 0 14px;
+  background: linear-gradient(180deg, rgba(248, 243, 238, 0.96), rgba(248, 243, 238, 0.84));
   backdrop-filter: blur(14px);
 }
 
@@ -114,7 +101,7 @@ h3,
 }
 
 .brand__cn {
-  font-size: 28px;
+  font-size: 26px;
   letter-spacing: 0.08em;
 }
 
@@ -127,11 +114,12 @@ h3,
 
 .topbar__nav a {
   white-space: nowrap;
-  padding: 10px 14px;
+  padding: 9px 13px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.82);
   color: var(--muted);
+  font-size: 14px;
 }
 
 .button {
@@ -155,7 +143,7 @@ h3,
 .button--primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-deep));
   color: #fffaf7;
-  box-shadow: 0 14px 30px rgba(111, 79, 72, 0.22);
+  box-shadow: 0 10px 22px rgba(111, 79, 72, 0.16);
 }
 
 .button--secondary,
@@ -174,10 +162,10 @@ h3,
 
 .section,
 .subpage-main {
-  padding-top: 24px;
+  padding-top: 22px;
 }
 
-.intro-strip,
+.entry-stack,
 .package-grid,
 .portfolio-grid,
 .contact-layout,
@@ -187,8 +175,7 @@ h3,
   gap: 16px;
 }
 
-.intro-strip__copy,
-.intro-strip__visual,
+.entry-card,
 .booking-overview,
 .cta-panel,
 .contact-card,
@@ -205,8 +192,8 @@ h3,
 }
 
 h1 {
-  margin: 12px 0 16px;
-  font-size: clamp(42px, 13vw, 66px);
+  margin: 10px 0 14px;
+  font-size: clamp(34px, 10vw, 48px);
 }
 
 .lead,
@@ -260,19 +247,21 @@ h1 {
   width: 100%;
 }
 
-.intro-strip__image-wrap {
+.entry-card {
+  display: grid;
+  gap: 16px;
+}
+
+.entry-card__media {
   overflow: hidden;
   border-radius: calc(var(--radius-lg) - 6px);
-  aspect-ratio: 4 / 4.6;
+  aspect-ratio: 4 / 4.5;
+  background: rgba(255, 255, 255, 0.75);
 }
 
-.intro-strip__image-wrap img {
+.entry-card__media img {
   height: 100%;
   object-fit: cover;
-}
-
-.intro-strip__meta {
-  margin-top: 16px;
 }
 
 .section-head {
@@ -281,7 +270,7 @@ h1 {
 }
 
 .section-head h2,
-.intro-strip__meta h2,
+.entry-card h2,
 .subpage-hero h2,
 .service-picks h2,
 .cta-panel h3,
@@ -290,7 +279,7 @@ h1 {
 .info-card h3,
 .records-panel h3 {
   margin: 10px 0 12px;
-  font-size: clamp(30px, 8vw, 44px);
+  font-size: clamp(26px, 7vw, 36px);
 }
 
 .package-grid {
@@ -324,7 +313,7 @@ h1 {
 .portfolio-card h3,
 .step-inline h3 {
   margin: 12px 0 10px;
-  font-size: 30px;
+  font-size: 26px;
 }
 
 .portfolio-card__image {
@@ -363,6 +352,16 @@ h1 {
   line-height: 1.8;
 }
 
+.detail-list--compact {
+  margin-top: 8px;
+}
+
+.section-copy {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 .payment-panel {
   display: grid;
   gap: 16px;
@@ -391,7 +390,7 @@ h1 {
   padding: 16px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.76);
+  background: rgba(255, 255, 255, 0.88);
   display: grid;
   gap: 6px;
 }
@@ -544,11 +543,21 @@ h1 {
   border-radius: 22px;
   background: rgba(255, 250, 246, 0.92);
   backdrop-filter: blur(18px);
-  box-shadow: 0 14px 36px rgba(103, 71, 64, 0.12);
+  box-shadow: 0 10px 28px rgba(103, 71, 64, 0.1);
 }
 
 .mobile-action-bar__button {
   flex: 1;
+}
+
+.subpage-hero--compact {
+  gap: 14px;
+}
+
+.subpage-hero__tips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 @media (min-width: 760px) {
@@ -562,7 +571,7 @@ h1 {
     align-items: center;
   }
 
-  .intro-strip,
+  .entry-stack,
   .contact-layout,
   .payment-panel,
   .booking-page-grid,

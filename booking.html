@@ -32,16 +32,24 @@
       </header>
 
       <main class="subpage-main">
-        <section class="subpage-hero card">
-          <p class="eyebrow">Booking</p>
-          <h1>站内预约</h1>
-          <p>先选服务，再填写日期、时间段、预计服务时长、区域和联系方式，预约会直接写入系统。</p>
+        <section class="subpage-hero card subpage-hero--compact">
+          <div>
+            <p class="eyebrow">Booking</p>
+            <h1>站内预约</h1>
+            <p>先选服务，再填写日期、时间段、预计服务时长、区域和联系方式，预约会直接写入系统。</p>
+          </div>
+          <div class="subpage-hero__tips">
+            <span class="chip chip--soft">先选服务</span>
+            <span class="chip chip--soft">再填日期</span>
+            <span class="chip chip--soft">站内直接提交</span>
+          </div>
         </section>
 
         <section class="service-picks card">
           <div>
             <p class="eyebrow">Choose Service</p>
-            <h2>先选一个服务</h2>
+            <h2>先选一个套餐</h2>
+            <p class="section-copy">先点中最接近的服务，再往下填写预约信息，会更快一些。</p>
           </div>
           <div class="service-picks__list" id="service-picks"></div>
         </section>
@@ -119,13 +127,13 @@
             <article class="card info-card">
               <p class="eyebrow">Wechat</p>
               <h3 id="wechat-value">StillinLoveWithYouH</h3>
-              <p id="contact-note">建议先沟通妆感、日期和区域，再决定最终安排。</p>
+              <p id="contact-note">如果你还没完全确定服务内容，建议先微信沟通妆感、日期和区域。</p>
               <button class="button button--ghost" type="button" data-wechat-copy>复制微信号</button>
             </article>
 
             <article class="card info-card">
               <p class="eyebrow">Before Submit</p>
-              <h3>预约前确认</h3>
+              <h3>填单前确认</h3>
               <ul class="detail-list">
                 <li>先选服务，再填日期和时间段</li>
                 <li>预计时长越准确越容易确认是否能接</li>
