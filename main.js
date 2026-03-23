@@ -115,14 +115,48 @@ function renderExtras(items) {
   });
 }
 
-async function copyWechat(wechat) {
-  try {
-    await navigator.clipboard.writeText(wechat);
-    if (wechatCopyStatus) wechatCopyStatus.textContent = `微信号已复制：${wechat}`;
-  } catch (error) {
-    console.warn(error);
-    if (wechatCopyStatus) wechatCopyStatus.textContent = `微信号：${wechat}`;
+function openWechatModal(config) {
+  const modal = document.querySelector("#wechat-modal");
+  if (!modal) return;
+
+  const idEl = document.querySelector("#wechat-modal-id");
+  const qrEl = document.querySelector("#wechat-modal-qr");
+  const copyBtn = document.querySelector("#wechat-modal-copy");
+  const statusEl = document.querySelector("#wechat-modal-copy-status");
+
+  if (idEl) idEl.textContent = config.contact.wechat;
+  if (qrEl && config.wechatQrImage) {
+    qrEl.hidden = false;
+    qrEl.src = config.wechatQrImage;
+    qrEl.onerror = () => { qrEl.hidden = true; };
   }
+  if (statusEl) statusEl.textContent = "";
+  if (copyBtn) {
+    copyBtn.onclick = async () => {
+      try {
+        await navigator.clipboard.writeText(config.contact.wechat);
+        if (statusEl) statusEl.textContent = "已复制微信号 ✓";
+      } catch {
+        if (statusEl) statusEl.textContent = `微信号：${config.contact.wechat}`;
+      }
+    };
+  }
+  modal.hidden = false;
+  document.body.style.overflow = "hidden";
+}
+
+function setupWechatModal() {
+  const modal = document.querySelector("#wechat-modal");
+  if (!modal) return;
+  const overlay = modal.querySelector(".wechat-modal__overlay");
+  const closeBtn = modal.querySelector(".wechat-modal__close");
+  const close = () => {
+    modal.hidden = true;
+    document.body.style.overflow = "";
+  };
+  overlay?.addEventListener("click", close);
+  closeBtn?.addEventListener("click", close);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
 }
 
 async function init() {
@@ -133,8 +167,9 @@ async function init() {
   renderExtras(config.extras || []);
   renderPortfolio(portfolioItems);
 
+  setupWechatModal();
   document.querySelectorAll("[data-wechat-copy]").forEach((button) => {
-    button.addEventListener("click", () => copyWechat(config.contact.wechat));
+    button.addEventListener("click", () => openWechatModal(config));
   });
 }
 

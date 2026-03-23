@@ -138,5 +138,6 @@
     "note": "看中项目后可先微信沟通日期、区域、是否需要发型以及你想要的妆感。"
   },
   "paymentQrImage": "./assets/payment/payment-qr.jpg",
-  "paymentQrCopy": "确认档期后，如需支付定金或尾款，可直接扫码。"
+  "paymentQrCopy": "确认档期后，如需支付定金或尾款，可直接扫码。",
+  "wechatQrImage": "./assets/wechat/wechat-qr.jpg"
 }

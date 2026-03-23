@@ -40,6 +40,11 @@
           <a class="button button--ghost button--sm" href="./index.html">← 返回服务列表</a>
         </div>
 
+        <div class="booking-service-banner card" id="booking-service-banner" hidden>
+          <span class="eyebrow">你正在预约</span>
+          <strong id="booking-service-name"></strong>
+        </div>
+
         <section class="service-picks card">
           <div>
             <p class="eyebrow">Choose Service</p>
@@ -160,5 +165,17 @@
     </div>
 
     <script src="./booking.js" type="module"></script>
+
+    <div id="wechat-modal" class="wechat-modal" role="dialog" aria-modal="true" aria-label="微信咨询" hidden>
+      <div class="wechat-modal__overlay"></div>
+      <div class="wechat-modal__card">
+        <button class="wechat-modal__close" type="button" aria-label="关闭">×</button>
+        <p class="eyebrow">添加微信咨询</p>
+        <img class="wechat-modal__qr" id="wechat-modal-qr" alt="婵媛造型微信二维码" hidden />
+        <p class="wechat-modal__id" id="wechat-modal-id"></p>
+        <button class="button button--primary wechat-modal__copy-btn" id="wechat-modal-copy" type="button">复制微信号</button>
+        <p class="wechat-modal__hint" id="wechat-modal-copy-status"></p>
+      </div>
+    </div>
   </body>
 </html>
