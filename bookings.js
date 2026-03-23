@@ -1,0 +1,126 @@
+const recordsGateStatus = document.querySelector("#records-gate-status");
+const recordsApp = document.querySelector("#records-app");
+const loadButton = document.querySelector("#load-bookings-button");
+const adminStatus = document.querySelector("#admin-status");
+const bookingsBody = document.querySelector("#admin-bookings-body");
+const logoutButton = document.querySelector("#logout-button");
+
+function formatDateTime(value) {
+  if (!value) {
+    return "";
+  }
+
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+
+  return new Intl.DateTimeFormat("zh-CN", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(date);
+}
+
+function createCell(content) {
+  const cell = document.createElement("td");
+  cell.textContent = content || "";
+  return cell;
+}
+
+function renderRows(records) {
+  bookingsBody.innerHTML = "";
+
+  if (!records.length) {
+    const row = document.createElement("tr");
+    const cell = document.createElement("td");
+    cell.colSpan = 9;
+    cell.textContent = "暂无预约记录";
+    row.appendChild(cell);
+    bookingsBody.appendChild(row);
+    return;
+  }
+
+  records.forEach((record) => {
+    const row = document.createElement("tr");
+    row.appendChild(createCell(formatDateTime(record.created_at)));
+    row.appendChild(createCell(record.name));
+    row.appendChild(createCell(record.contact));
+    row.appendChild(createCell(record.service));
+    row.appendChild(createCell(record.date));
+    row.appendChild(createCell(record.time_slot));
+    row.appendChild(createCell(record.duration));
+    row.appendChild(createCell(record.location));
+    row.appendChild(createCell(record.notes));
+    bookingsBody.appendChild(row);
+  });
+}
+
+async function ensureSession() {
+  const response = await fetch("/api/admin-session", {
+    credentials: "same-origin",
+  });
+  const result = await response.json().catch(() => ({}));
+
+  if (!response.ok || !result.authenticated) {
+    window.location.href = "./records-login";
+    return false;
+  }
+
+  recordsGateStatus.textContent = "权限校验成功，正在加载预约记录。";
+  recordsApp.hidden = false;
+  return true;
+}
+
+async function loadRecords() {
+  adminStatus.textContent = "正在加载预约记录...";
+  adminStatus.dataset.state = "loading";
+
+  try {
+    const response = await fetch("/api/bookings", {
+      credentials: "same-origin",
+    });
+    const result = await response.json().catch(() => ({}));
+
+    if (response.status === 401) {
+      window.location.href = "./records-login";
+      return;
+    }
+
+    if (!response.ok) {
+      throw new Error(result.error || "加载失败");
+    }
+
+    renderRows(result.records || []);
+    adminStatus.textContent = "预约记录已更新。";
+    adminStatus.dataset.state = "success";
+  } catch (error) {
+    adminStatus.textContent = error.message;
+    adminStatus.dataset.state = "error";
+  }
+}
+
+async function logout() {
+  await fetch("/api/admin-session", {
+    method: "DELETE",
+    credentials: "same-origin",
+  });
+  window.location.href = "./records-login";
+}
+
+loadButton.addEventListener("click", loadRecords);
+logoutButton.addEventListener("click", logout);
+
+(async () => {
+  try {
+    const allowed = await ensureSession();
+    if (allowed) {
+      await loadRecords();
+    }
+  } catch (error) {
+    console.error(error);
+    window.location.href = "./records-login";
+  }
+})();

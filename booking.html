@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>婵媛造型 | 站内预约</title>
+    <meta
+      name="description"
+      content="婵媛造型站内预约页，先选服务，再填写日期、时间段、预计时长、区域和联系方式。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="./index.html" aria-label="返回婵媛造型首页">
+          <span class="brand__en">CHANYUAN</span>
+          <span class="brand__cn">婵媛造型</span>
+        </a>
+        <nav class="topbar__nav" aria-label="预约页导航">
+          <a href="./index.html#packages">套餐</a>
+          <a href="./index.html#portfolio">作品</a>
+          <a href="#booking-form">预约</a>
+          <a href="./index.html#contact">联系</a>
+        </nav>
+      </header>
+
+      <main class="subpage-main">
+        <section class="subpage-hero card">
+          <p class="eyebrow">Booking</p>
+          <h1>站内预约</h1>
+          <p>先选服务，再填写日期、时间段、预计服务时长、区域和联系方式，预约会直接写入系统。</p>
+        </section>
+
+        <section class="service-picks card">
+          <div>
+            <p class="eyebrow">Choose Service</p>
+            <h2>先选一个服务</h2>
+          </div>
+          <div class="service-picks__list" id="service-picks"></div>
+        </section>
+
+        <section class="booking-page-grid">
+          <form class="form-card card" id="booking-form">
+            <label>
+              <span>服务类型</span>
+              <select name="service" id="service-select" required>
+                <option value="">请选择服务类型</option>
+              </select>
+            </label>
+
+            <label>
+              <span>预约日期</span>
+              <input type="date" name="date" id="date-input" required />
+            </label>
+
+            <label>
+              <span>时间段</span>
+              <select name="timeSlot" required>
+                <option value="">请选择时间段</option>
+                <option value="上午">上午</option>
+                <option value="下午">下午</option>
+                <option value="晚上">晚上</option>
+                <option value="全天可协商">全天可协商</option>
+              </select>
+            </label>
+
+            <label>
+              <span>预计服务时长</span>
+              <select name="duration" required>
+                <option value="">请选择预计服务时长</option>
+                <option value="1小时内">1小时内</option>
+                <option value="2小时内">2小时内</option>
+                <option value="半天（约3-4小时）">半天（约3-4小时）</option>
+                <option value="全天">全天</option>
+                <option value="需要沟通确认">需要沟通确认</option>
+              </select>
+            </label>
+
+            <label>
+              <span>区域 / 地址</span>
+              <input type="text" name="location" placeholder="例如：北京朝阳 / 海淀" required />
+            </label>
+
+            <label>
+              <span>微信号 / 手机号</span>
+              <input type="text" name="contact" placeholder="填写一个常用联系方式" required />
+            </label>
+
+            <label>
+              <span>称呼</span>
+              <input type="text" name="name" placeholder="例如：林小姐" required />
+            </label>
+
+            <label class="form-card__full">
+              <span>备注</span>
+              <textarea
+                name="notes"
+                rows="5"
+                placeholder="例如：希望的妆感、活动类型、是否需要发型、是否多人等"
+              ></textarea>
+            </label>
+
+            <div class="form-card__full form-card__actions">
+              <button class="button button--primary" type="submit">提交预约</button>
+              <button class="button button--ghost" type="button" data-wechat-copy>复制微信号</button>
+              <p class="inline-note" id="booking-hint">如果还想先聊风格，可以先复制微信号沟通。</p>
+              <p class="status-text" id="booking-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <aside class="booking-side">
+            <article class="card info-card">
+              <p class="eyebrow">Wechat</p>
+              <h3 id="wechat-value">StillinLoveWithYouH</h3>
+              <p id="contact-note">建议先沟通妆感、日期和区域，再决定最终安排。</p>
+              <button class="button button--ghost" type="button" data-wechat-copy>复制微信号</button>
+            </article>
+
+            <article class="card info-card">
+              <p class="eyebrow">Before Submit</p>
+              <h3>预约前确认</h3>
+              <ul class="detail-list">
+                <li>先选服务，再填日期和时间段</li>
+                <li>预计时长越准确越容易确认是否能接</li>
+                <li>区域越清楚越方便判断安排</li>
+              </ul>
+            </article>
+
+            <article class="card info-card" id="payment-panel" hidden>
+              <p class="eyebrow">Payment</p>
+              <h3>收款码</h3>
+              <p id="payment-copy">确认档期后，如需支付定金或尾款，可直接扫码。</p>
+              <img id="payment-image" alt="婵媛造型收款码" loading="lazy" />
+            </article>
+          </aside>
+        </section>
+      </main>
+
+      <div class="mobile-action-bar">
+        <button class="button button--ghost mobile-action-bar__button" type="button" data-wechat-copy>
+          微信咨询
+        </button>
+        <button class="button button--primary mobile-action-bar__button" type="button" id="scroll-to-form-button">
+          去预约
+        </button>
+      </div>
+    </div>
+
+    <script src="./booking.js" type="module"></script>
+  </body>
+</html>

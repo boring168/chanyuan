@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>婵媛造型 | 套餐与预约</title>
+    <meta
+      name="description"
+      content="婵媛造型提供日常、写真、约会、创意、舞台、复古与新娘跟妆服务。先看套餐，再微信咨询或站内预约。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="婵媛造型首页">
+          <span class="brand__en">CHANYUAN</span>
+          <span class="brand__cn">婵媛造型</span>
+        </a>
+        <nav class="topbar__nav" aria-label="主导航">
+          <a href="#packages">套餐</a>
+          <a href="#portfolio">作品</a>
+          <a href="#booking">预约</a>
+          <a href="#contact">联系</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="intro-strip section">
+          <div class="intro-strip__copy card">
+            <p class="eyebrow">CHANYUAN MAKEUP</p>
+            <h1>婵媛造型</h1>
+            <p class="lead" id="brand-intro">
+              清透、柔和、质感系妆发定制，适用于写真拍摄、约会出行、活动妆造与新娘跟妆。
+            </p>
+            <div class="chip-list" id="hero-tags" aria-label="服务标签"></div>
+            <div class="action-row">
+              <button class="button button--ghost" type="button" data-wechat-copy>
+                微信咨询
+              </button>
+              <a class="button button--primary" href="./booking">去预约</a>
+            </div>
+            <p class="inline-note" id="wechat-copy-status">先选服务，再决定是微信沟通还是直接预约。</p>
+          </div>
+
+          <div class="intro-strip__visual card">
+            <div class="intro-strip__image-wrap">
+              <img id="intro-image" alt="婵媛造型主视觉作品" loading="eager" />
+            </div>
+            <div class="intro-strip__meta">
+              <p class="eyebrow">Booking Note</p>
+              <h2 id="hero-highlight-title">选好服务，再决定怎么约</h2>
+              <p id="hero-highlight-copy">适合先看套餐卡片和案例，再直接微信沟通或站内提交预约。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="packages">
+          <div class="section-head">
+            <p class="eyebrow">Packages</p>
+            <h2>套餐 / 服务</h2>
+            <p id="services-summary">先看适合的服务卡片，再直接选择套餐去预约。</p>
+          </div>
+          <div class="package-grid" id="services-grid"></div>
+        </section>
+
+        <section class="section" id="portfolio">
+          <div class="section-head">
+            <p class="eyebrow">Portfolio</p>
+            <h2>作品展示</h2>
+            <p>案例只做辅助参考，方便你更快判断妆感和风格是否适合自己。</p>
+          </div>
+          <div class="portfolio-grid" id="portfolio-grid"></div>
+        </section>
+
+        <section class="section" id="booking">
+          <div class="section-head">
+            <p class="eyebrow">Booking</p>
+            <h2>预约很简单</h2>
+            <p>站内填写服务、日期、时间段、预计时长、区域和联系方式，系统会直接记录预约。</p>
+          </div>
+          <div class="booking-overview card">
+            <div class="booking-overview__list" id="process-grid"></div>
+          </div>
+          <div class="cta-panel card">
+            <div>
+              <p class="eyebrow">Next Step</p>
+              <h3>已经看好服务？</h3>
+              <p>可以直接去预约页填写；如果还想先沟通妆感和日期，也可以先加微信。</p>
+            </div>
+            <div class="action-row">
+              <button class="button button--ghost" type="button" data-wechat-copy>微信咨询</button>
+              <a class="button button--primary" href="./booking">去预约</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="section-head">
+            <p class="eyebrow">Contact</p>
+            <h2>联系与付款</h2>
+            <p>微信是最直接的沟通方式，确认档期后也可以直接扫码付款。</p>
+          </div>
+          <div class="contact-layout">
+            <article class="card contact-card">
+              <p class="eyebrow">Wechat</p>
+              <h3 id="wechat-value">StillinLoveWithYouH</h3>
+              <p id="contact-note">可先微信沟通妆感、日期、区域与现场安排，再决定是否提交预约。</p>
+              <div class="action-row">
+                <button class="button button--primary" type="button" data-wechat-copy>
+                  复制微信号
+                </button>
+                <a class="button button--secondary" href="./booking">去预约页</a>
+              </div>
+            </article>
+
+            <article class="card contact-card">
+              <p class="eyebrow">Service Area</p>
+              <h3 id="city-value">北京</h3>
+              <p>提交预约后，会结合日期、时段、预计时长和区域确认是否可以安排。</p>
+              <ul class="detail-list">
+                <li>预约信息站内提交</li>
+                <li>提交后可继续微信沟通</li>
+                <li>记录会直接写入预约表</li>
+              </ul>
+            </article>
+          </div>
+
+          <article class="payment-panel card" id="payment-panel" hidden>
+            <div class="payment-panel__copy">
+              <p class="eyebrow">Payment</p>
+              <h3>收款码</h3>
+              <p id="payment-copy">确认档期后，如需支付定金或尾款，可直接扫码。</p>
+            </div>
+            <div class="payment-panel__image">
+              <img id="payment-image" alt="婵媛造型收款码" loading="lazy" />
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>婵媛造型</p>
+        <p>北京接单 · 微信咨询优先</p>
+      </footer>
+
+      <div class="mobile-action-bar">
+        <button class="button button--ghost mobile-action-bar__button" type="button" data-wechat-copy>
+          微信咨询
+        </button>
+        <a class="button button--primary mobile-action-bar__button" href="./booking">去预约</a>
+      </div>
+    </div>
+
+    <template id="portfolio-card-template">
+      <article class="portfolio-card card">
+        <div class="portfolio-card__image">
+          <img alt="" loading="lazy" />
+        </div>
+        <div class="portfolio-card__body">
+          <h3></h3>
+          <p></p>
+        </div>
+      </article>
+    </template>
+
+    <template id="service-card-template">
+      <article class="package-card card">
+        <div class="package-card__head">
+          <p class="package-card__tag"></p>
+          <p class="package-card__price"></p>
+        </div>
+        <h3></h3>
+        <p class="package-card__desc"></p>
+        <div class="package-card__includes"></div>
+        <div class="package-card__actions">
+          <a class="button button--primary" data-service-pick>选择套餐</a>
+          <a class="button button--secondary" href="./booking">去预约</a>
+        </div>
+      </article>
+    </template>
+
+    <template id="process-card-template">
+      <article class="step-inline">
+        <p class="step-card__no"></p>
+        <h3></h3>
+        <p></p>
+      </article>
+    </template>
+
+    <script src="./main.js" type="module"></script>
+  </body>
+</html>
