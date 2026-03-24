@@ -1,9 +1,12 @@
 const recordsGateStatus = document.querySelector("#records-gate-status");
 const recordsApp = document.querySelector("#records-app");
 const loadButton = document.querySelector("#load-bookings-button");
+const clearButton = document.querySelector("#clear-bookings-button");
 const adminStatus = document.querySelector("#admin-status");
 const bookingsBody = document.querySelector("#admin-bookings-body");
 const logoutButton = document.querySelector("#logout-button");
+
+let currentRecords = [];
 
 function formatDateTime(value) {
   if (!value) {
@@ -31,6 +34,7 @@ function createCell(content) {
 }
 
 function renderRows(records) {
+  currentRecords = records;
   bookingsBody.innerHTML = "";
 
   if (!records.length) {
@@ -110,7 +114,53 @@ async function logout() {
   window.location.href = "./records-login";
 }
 
+async function clearRecords() {
+  const count = currentRecords.length;
+
+  if (count === 0) {
+    adminStatus.textContent = "当前没有可删除记录。";
+    adminStatus.dataset.state = "";
+    return;
+  }
+
+  const confirmed = window.confirm(
+    `确认删除当前所有预约记录？\n共 ${count} 条，删除后不可恢复。`
+  );
+  if (!confirmed) return;
+
+  adminStatus.textContent = "正在删除...";
+  adminStatus.dataset.state = "loading";
+
+  try {
+    const response = await fetch("/api/bookings", {
+      method: "DELETE",
+      credentials: "same-origin",
+    });
+    const result = await response.json().catch(() => ({}));
+
+    if (response.status === 401) {
+      window.location.href = "./records-login";
+      return;
+    }
+
+    if (!response.ok) {
+      throw new Error(result.error || "删除失败");
+    }
+
+    adminStatus.textContent =
+      result.deletedCount === 0
+        ? "当前没有可删除记录。"
+        : `删除成功，已删除 ${result.deletedCount} 条记录。`;
+    adminStatus.dataset.state = "success";
+    await loadRecords();
+  } catch (error) {
+    adminStatus.textContent = `删除失败：${error.message}`;
+    adminStatus.dataset.state = "error";
+  }
+}
+
 loadButton.addEventListener("click", loadRecords);
+clearButton.addEventListener("click", clearRecords);
 logoutButton.addEventListener("click", logout);
 
 (async () => {

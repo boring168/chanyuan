@@ -198,6 +198,17 @@ h3,
   border: 1px solid var(--line);
 }
 
+.button--danger {
+  background: #b94040;
+  color: #fff;
+  border: 1px solid transparent;
+  box-shadow: 0 8px 20px rgba(140, 40, 40, 0.18);
+}
+
+.button--danger:hover {
+  background: #9e3232;
+}
+
 .card {
   border: 1px solid var(--line);
   background: var(--card);
@@ -1236,4 +1247,12 @@ h1 {
   font-size: 15px;
   font-weight: 600;
   color: var(--accent-deep);
+}
+
+/* ── records-actions (admin page clear + refresh buttons) ─────────────── */
+
+.records-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
