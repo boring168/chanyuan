@@ -184,7 +184,6 @@ const SITE_CHROME = {
     footerTagline: "上门美甲 · 预约制 · 微信优先",
     nav: [
       { href: "#services", label: "服务内容" },
-      { href: "#gallery", label: "部分款式" },
       { href: "#notes", label: "预约说明" },
       { href: "#contact", label: "联系" },
     ],

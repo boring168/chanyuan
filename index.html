@@ -126,39 +126,31 @@
     <template id="nail-home-template">
       <section class="home-hero section">
         <div class="home-hero__copy">
-          <p class="eyebrow">Chanyuan Nail Studio</p>
           <h1 class="home-hero__title">婵媛 Nail Studio</h1>
-          <p class="home-hero__sub">上门美甲，简单、干净、可预约</p>
+          <p class="home-hero__sub">上门美甲，需提前预约</p>
           <div class="home-hero__actions">
             <a class="button button--secondary button--sm" href="#services">查看服务</a>
             <a class="button button--primary button--sm" href="./booking">立即预约</a>
           </div>
-        </div>
-
-        <div class="home-hero__media" aria-label="美甲作品展示">
-          <article class="home-hero__feature-card">
-            <div class="home-hero__feature-copy">
-              <p class="eyebrow">Selected Works</p>
-              <h2>更轻的页面感，更专注的预约体验。</h2>
-              <p>把展示做得更克制，把重点留给款式、沟通和预约本身。</p>
-            </div>
-            <img src="./assets/portfolio/creative-look.jpg" alt="婵媛 Nail Studio 首页主图" loading="eager" />
-          </article>
+          <ul class="home-hero__meta">
+            <li>上门</li>
+            <li>预约制</li>
+            <li>微信沟通</li>
+          </ul>
         </div>
       </section>
 
       <section class="section" id="services">
         <div class="section-head section-head--centered">
-          <p class="eyebrow">Services</p>
           <h2>服务内容</h2>
-          <p>价格信息保留必要部分，整体更像产品卡片，不再是传统价目表堆叠。</p>
+          <p>先看服务，再预约。</p>
         </div>
 
         <div class="home-services-grid">
           <article class="home-service-card card">
             <p class="eyebrow">Natural Nail</p>
             <h3 class="home-service-card__name">本甲</h3>
-            <p class="home-service-card__desc">适合想要自然、干净完成度的日常预约，整体更轻，也更容易搭配。</p>
+            <p class="home-service-card__desc">日常预约</p>
             <ul class="home-service-card__prices">
               <li><span>纯色 / 跳色 / 透色</span><span class="home-service-card__price">19.8</span></li>
               <li><span>纯色 + 建构</span><span class="home-service-card__price">39.8</span></li>
@@ -171,19 +163,18 @@
           <article class="home-service-card card">
             <p class="eyebrow">Nail Tips</p>
             <h3 class="home-service-card__name">甲片</h3>
-            <p class="home-service-card__desc">适合想要更完整造型感和更明显长度变化的预约需求，含建构。</p>
+            <p class="home-service-card__desc">含建构</p>
             <ul class="home-service-card__prices">
               <li><span>半贴纯色</span><span class="home-service-card__price">69.8</span></li>
               <li><span>半贴款式</span><span class="home-service-card__price">89.8</span></li>
             </ul>
-            <p class="home-service-card__footnote">含建构</p>
             <a class="button button--primary button--sm home-service-card__cta" href="./booking">立即预约</a>
           </article>
 
           <article class="home-service-card card">
             <p class="eyebrow">Removal</p>
             <h3 class="home-service-card__name">卸甲</h3>
-            <p class="home-service-card__desc">续做前整理和单独卸除都可以预约，说明保持简洁，但信息仍然清楚。</p>
+            <p class="home-service-card__desc">续做或单独卸除</p>
             <ul class="home-service-card__prices">
               <li><span>本甲</span><span class="home-service-card__price">9.8</span></li>
               <li><span>甲片</span><span class="home-service-card__price">19.8</span></li>
@@ -194,56 +185,27 @@
         </div>
       </section>
 
-      <section class="section" id="gallery">
-        <div class="section-head section-head--centered">
-          <p class="eyebrow">Gallery</p>
-          <h2>部分款式</h2>
-          <p>先看少量作品，建立整体感觉，再通过微信沟通更具体的偏好和参考图。</p>
-        </div>
-
-        <div class="home-gallery">
-          <article class="home-gallery__hero card">
-            <img src="./assets/portfolio/photo-look.jpg" alt="部分款式展示主图" loading="lazy" />
-          </article>
-          <div class="home-gallery__grid">
-            <article class="home-gallery__item card">
-              <img src="./assets/portfolio/date-look.jpg" alt="纯色和日常风格美甲展示" loading="lazy" />
-              <p>纯色 / 日常</p>
-            </article>
-            <article class="home-gallery__item card">
-              <img src="./assets/portfolio/daily-look.jpg" alt="法式和细节风格美甲展示" loading="lazy" />
-              <p>法式 / 细节</p>
-            </article>
-            <article class="home-gallery__item card">
-              <img src="./assets/portfolio/stage-look.jpg" alt="设计款美甲展示" loading="lazy" />
-              <p>设计 / 完整造型感</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section class="section" id="notes">
         <div class="section-head section-head--centered">
-          <p class="eyebrow">Before You Book</p>
           <h2>预约说明</h2>
         </div>
 
         <div class="home-notes-grid">
           <article class="home-note-card card">
             <p class="home-note-card__label">预约</p>
-            <p class="home-note-card__text">需至少提前一天预约</p>
+            <p class="home-note-card__text">提前一天预约</p>
           </article>
           <article class="home-note-card card">
             <p class="home-note-card__label">售后</p>
             <p class="home-note-card__text">非人为问题，7 天内可免费修补一次</p>
           </article>
           <article class="home-note-card card">
-            <p class="home-note-card__label">确认</p>
-            <p class="home-note-card__text">照灯前确认，照灯后不再更改</p>
+            <p class="home-note-card__label">沟通</p>
+            <p class="home-note-card__text">复杂款式需提前沟通</p>
           </article>
           <article class="home-note-card card">
-            <p class="home-note-card__label">沟通</p>
-            <p class="home-note-card__text">复杂款式 / 手绘需提前沟通，网图不保证 1:1 还原</p>
+            <p class="home-note-card__label">参考图</p>
+            <p class="home-note-card__text">网图不保证 1:1 还原</p>
           </article>
         </div>
       </section>
@@ -251,44 +213,14 @@
       <section class="section" id="contact">
         <div class="home-booking-intro card">
           <div>
-            <p class="eyebrow">Booking</p>
-            <h2>预约流程不变，只把首页做得更轻。</h2>
-            <p>你可以继续站内提交预约，也可以先微信发图确认款式和档期，现有功能都保留。</p>
+            <h2>微信咨询或直接预约</h2>
+            <p id="contact-note">有款式图或具体需求，可以直接微信发给我。</p>
+            <h3 id="wechat-value" class="home-booking-intro__wechat">StillinLoveWithYouH</h3>
           </div>
           <div class="home-booking-intro__actions">
             <button class="button button--secondary" type="button" data-wechat-copy>微信咨询</button>
             <a class="button button--primary" href="./booking">立即预约</a>
           </div>
-        </div>
-
-        <div class="section-head section-head--centered">
-          <p class="eyebrow">Contact</p>
-          <h2>联系方式</h2>
-          <p>微信仍然是最快的沟通方式，收款码和预约入口也继续保留在首页。</p>
-        </div>
-
-        <div class="home-contact-grid">
-          <article class="card contact-card home-contact-card">
-            <p class="eyebrow">Wechat</p>
-            <h3 id="wechat-value">StillinLoveWithYouH</h3>
-            <p id="contact-note">有款式图或具体需求，可以直接微信发给我。</p>
-            <div class="action-row">
-              <button class="button button--primary" type="button" data-wechat-copy>
-                复制微信号
-              </button>
-              <a class="button button--secondary" href="./booking">去预约页</a>
-            </div>
-          </article>
-
-          <article class="card contact-card home-contact-card">
-            <p class="eyebrow">How It Works</p>
-            <h3>预约流程</h3>
-            <ul class="detail-list">
-              <li>确认服务类型和日期</li>
-              <li>提交站内预约表单</li>
-              <li>确认后上门服务</li>
-            </ul>
-          </article>
         </div>
 
         <article class="payment-panel card home-payment-panel" id="payment-panel" hidden>
