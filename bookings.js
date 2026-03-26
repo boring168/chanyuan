@@ -40,7 +40,7 @@ function renderRows(records) {
   if (!records.length) {
     const row = document.createElement("tr");
     const cell = document.createElement("td");
-    cell.colSpan = 9;
+    cell.colSpan = 10;
     cell.textContent = "暂无预约记录";
     row.appendChild(cell);
     bookingsBody.appendChild(row);
@@ -49,6 +49,7 @@ function renderRows(records) {
 
   records.forEach((record) => {
     const row = document.createElement("tr");
+    row.dataset.id = record.id;
     row.appendChild(createCell(formatDateTime(record.created_at)));
     row.appendChild(createCell(record.name));
     row.appendChild(createCell(record.contact));
@@ -58,6 +59,16 @@ function renderRows(records) {
     row.appendChild(createCell(record.duration));
     row.appendChild(createCell(record.location));
     row.appendChild(createCell(record.notes));
+
+    const actionCell = document.createElement("td");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.type = "button";
+    deleteBtn.className = "button button--danger button--sm";
+    deleteBtn.textContent = "删除";
+    deleteBtn.addEventListener("click", () => deleteRecord(record.id, row));
+    actionCell.appendChild(deleteBtn);
+    row.appendChild(actionCell);
+
     bookingsBody.appendChild(row);
   });
 }
@@ -153,6 +164,43 @@ async function clearRecords() {
         : `删除成功，已删除 ${result.deletedCount} 条记录。`;
     adminStatus.dataset.state = "success";
     await loadRecords();
+  } catch (error) {
+    adminStatus.textContent = `删除失败：${error.message}`;
+    adminStatus.dataset.state = "error";
+  }
+}
+
+async function deleteRecord(id, row) {
+  const confirmed = window.confirm("删除后不可恢复，是否继续？");
+  if (!confirmed) return;
+
+  adminStatus.textContent = "正在删除...";
+  adminStatus.dataset.state = "loading";
+
+  try {
+    const response = await fetch(`/api/bookings?id=${encodeURIComponent(id)}`, {
+      method: "DELETE",
+      credentials: "same-origin",
+    });
+    const result = await response.json().catch(() => ({}));
+
+    if (response.status === 401) {
+      window.location.href = "./records-login";
+      return;
+    }
+
+    if (!response.ok) {
+      throw new Error(result.error || "删除失败");
+    }
+
+    row.remove();
+    currentRecords = currentRecords.filter((r) => r.id !== id);
+    adminStatus.textContent = "已删除该条记录。";
+    adminStatus.dataset.state = "success";
+
+    if (currentRecords.length === 0) {
+      renderRows([]);
+    }
   } catch (error) {
     adminStatus.textContent = `删除失败：${error.message}`;
     adminStatus.dataset.state = "error";

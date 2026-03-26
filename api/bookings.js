@@ -25,7 +25,6 @@ function getEnv() {
     notifyEmail: String(process.env.BOOKING_NOTIFY_EMAIL || "").trim(),
     fromEmail: String(process.env.BOOKING_FROM_EMAIL || "").trim(),
     adminKey: String(process.env.BOOKINGS_ADMIN_KEY || "").trim(),
-    serverchanKey: String(process.env.SERVERCHAN_KEY || "").trim(),
   };
 }
 
@@ -213,52 +212,6 @@ async function notifyByEmail(env, booking, recordId) {
   return { sent: true };
 }
 
-async function notifyByWechat(env, booking) {
-  if (!env.serverchanKey) {
-    console.log("[wechat] SERVERCHAN_KEY 未设置，跳过通知");
-    return { sent: false, reason: "no_key" };
-  }
-
-  const keys = env.serverchanKey.split(",").map((k) => k.trim()).filter(Boolean);
-  if (keys.length === 0) {
-    console.log("[wechat] SERVERCHAN_KEY 解析后为空，跳过通知");
-    return { sent: false, reason: "empty_key" };
-  }
-
-  console.log(`[wechat] 开始发送通知，key 数量：${keys.length}，key 前缀：${keys.map((k) => k.slice(0, 6)).join(",")}`);
-
-  const title = `新预约 | ${booking.service} | ${booking.date}`;
-  const desp = [
-    `**称呼：** ${booking.name}`,
-    `**联系方式：** ${booking.contact}`,
-    `**服务类型：** ${booking.service}`,
-    `**预约日期：** ${booking.date}`,
-    `**时间段：** ${booking.time_slot}`,
-    `**预计时长：** ${booking.duration}`,
-    `**区域 / 地址：** ${booking.location}`,
-    `**备注：** ${booking.notes || "无"}`,
-  ].join("\n\n");
-
-  const results = await Promise.all(
-    keys.map(async (key) => {
-      const res = await fetch(`https://sctapi.ftqq.com/${key}.send`, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({ title, desp }),
-      });
-      const body = await res.text();
-      console.log(`[wechat] key ${key.slice(0, 6)}... 返回 HTTP ${res.status}，body：${body.slice(0, 200)}`);
-      if (!res.ok) {
-        throw new Error(`Server酱返回错误 ${res.status}：${body.slice(0, 200)}`);
-      }
-      return body;
-    })
-  );
-
-  console.log(`[wechat] 通知发送完成，共 ${results.length} 条`);
-  return { sent: true };
-}
-
 module.exports = async function handler(req, res) {
   const env = getEnv();
 
@@ -287,37 +240,20 @@ module.exports = async function handler(req, res) {
       };
 
       const record = await insertBooking(env, booking);
-      console.log(`[booking] 写入成功，record id：${record.id}`);
 
       let emailSent = false;
-      let wechatSent = false;
-      let wechatError = null;
 
       try {
         const emailResult = await notifyByEmail(env, booking, record.id || "");
         emailSent = emailResult.sent;
-      } catch (err) {
-        console.error("[email] 通知失败：", err.message);
-      }
-
-      try {
-        const wechatResult = await notifyByWechat(env, booking);
-        wechatSent = wechatResult.sent;
-        if (!wechatSent) {
-          wechatError = wechatResult.reason || "skipped";
-          console.log(`[wechat] 未发送，原因：${wechatError}`);
-        }
-      } catch (err) {
-        wechatError = err.message;
-        console.error("[wechat] 通知失败：", err.message);
+      } catch (emailError) {
+        console.error(emailError);
       }
 
       return res.status(200).json({
         ok: true,
         bookingId: record.id,
         emailSent,
-        wechatSent,
-        wechatError,
       });
     }
 
@@ -358,15 +294,18 @@ module.exports = async function handler(req, res) {
         return res.status(401).json({ error: "未授权访问。" });
       }
 
-      const deleteResponse = await fetch(
-        `${env.supabaseUrl}/rest/v1/bookings?id=not.is.null`,
-        {
-          method: "DELETE",
-          headers: createSupabaseHeaders(env.supabaseKey, {
-            Prefer: "return=representation",
-          }),
-        }
-      );
+      const targetId = req.query?.id || "";
+
+      const deleteUrl = targetId
+        ? `${env.supabaseUrl}/rest/v1/bookings?id=eq.${encodeURIComponent(targetId)}`
+        : `${env.supabaseUrl}/rest/v1/bookings?id=not.is.null`;
+
+      const deleteResponse = await fetch(deleteUrl, {
+        method: "DELETE",
+        headers: createSupabaseHeaders(env.supabaseKey, {
+          Prefer: "return=representation",
+        }),
+      });
 
       if (!deleteResponse.ok) {
         const text = await deleteResponse.text();
@@ -374,7 +313,11 @@ module.exports = async function handler(req, res) {
       }
 
       const deleted = await deleteResponse.json();
-      console.log(`[admin] 清空预约记录，共删除 ${deleted.length} 条`);
+      if (targetId) {
+        console.log(`[admin] 删除单条预约记录 id=${targetId}`);
+      } else {
+        console.log(`[admin] 清空预约记录，共删除 ${deleted.length} 条`);
+      }
       res.setHeader("Cache-Control", "no-store");
       return res.status(200).json({ ok: true, deletedCount: deleted.length });
     }

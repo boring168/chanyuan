@@ -166,6 +166,27 @@
 
     <script src="./booking.js" type="module"></script>
 
+    <div id="success-modal" class="success-modal" role="dialog" aria-modal="true" aria-label="预约提交成功" hidden>
+      <div class="success-modal__overlay"></div>
+      <div class="success-modal__card">
+        <div class="success-modal__top">
+          <p class="success-modal__tagline">已提交成功，也可加微信继续沟通细节</p>
+          <button class="button button--ghost button--sm success-modal__copy-wechat" id="success-modal-copy-wechat" type="button">复制微信号</button>
+          <button class="success-modal__close" type="button" aria-label="关闭">×</button>
+        </div>
+        <div class="success-modal__body">
+          <p class="success-modal__title">预约提交成功 ✓</p>
+          <p class="success-modal__desc">我们已收到你的预约信息，可继续微信沟通细节。</p>
+          <p class="success-modal__id" id="success-modal-id"></p>
+        </div>
+        <div class="success-modal__actions">
+          <a class="button button--ghost" href="./index.html">返回首页</a>
+          <button class="button button--primary" id="success-modal-wechat" type="button">微信咨询</button>
+        </div>
+        <p class="success-modal__copy-status" id="success-modal-copy-status"></p>
+      </div>
+    </div>
+
     <div id="wechat-modal" class="wechat-modal" role="dialog" aria-modal="true" aria-label="微信咨询" hidden>
       <div class="wechat-modal__overlay"></div>
       <div class="wechat-modal__card">

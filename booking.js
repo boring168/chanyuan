@@ -15,6 +15,8 @@ const scrollToFormButton = document.querySelector("#scroll-to-form-button");
 
 const bookingDraftStorageKey = "chanyuan-booking-draft-v3";
 
+let _wechatValue = "";
+
 function setMinBookingDate() {
   const today = new Date();
   const year = today.getFullYear();
@@ -137,6 +139,50 @@ function setupWechatModal() {
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
 }
 
+function openSuccessModal(bookingId) {
+  const modal = document.querySelector("#success-modal");
+  if (!modal) return;
+  const idEl = document.querySelector("#success-modal-id");
+  if (idEl) {
+    idEl.textContent = bookingId ? `记录编号：${bookingId}` : "";
+  }
+  modal.hidden = false;
+  document.body.style.overflow = "hidden";
+}
+
+function setupSuccessModal(config) {
+  const modal = document.querySelector("#success-modal");
+  if (!modal) return;
+
+  const overlay = modal.querySelector(".success-modal__overlay");
+  const closeBtn = modal.querySelector(".success-modal__close");
+  const wechatBtn = document.querySelector("#success-modal-wechat");
+  const copyBtn = document.querySelector("#success-modal-copy-wechat");
+  const copyStatus = document.querySelector("#success-modal-copy-status");
+
+  const close = () => {
+    modal.hidden = true;
+    document.body.style.overflow = "";
+  };
+
+  overlay?.addEventListener("click", close);
+  closeBtn?.addEventListener("click", close);
+
+  wechatBtn?.addEventListener("click", () => {
+    close();
+    openWechatModal(config);
+  });
+
+  copyBtn?.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(_wechatValue);
+      if (copyStatus) copyStatus.textContent = "微信号已复制 ✓";
+    } catch {
+      if (copyStatus) copyStatus.textContent = `微信号：${_wechatValue}`;
+    }
+  });
+}
+
 function updateServiceBanner(value) {
   const banner = document.querySelector("#booking-service-banner");
   const nameEl = document.querySelector("#booking-service-name");
@@ -174,6 +220,7 @@ async function init() {
   setSelectedPick(serviceSelect.value);
   updateServiceBanner(serviceSelect.value);
 
+  _wechatValue = config.contact.wechat;
   wechatValue.textContent = config.contact.wechat;
   contactNote.textContent = config.contact.note;
 
@@ -196,6 +243,7 @@ async function init() {
   });
 
   setupWechatModal();
+  setupSuccessModal(config);
   document.querySelectorAll("[data-wechat-copy]").forEach((button) => {
     button.addEventListener("click", () => openWechatModal(config));
   });
@@ -215,11 +263,9 @@ async function init() {
       bookingForm.reset();
       setMinBookingDate();
       setSelectedPick("");
-      bookingStatus.dataset.state = "success";
-      bookingStatus.textContent = result.bookingId
-        ? `预约已提交，记录编号：${result.bookingId}`
-        : "预约已提交，我们会尽快确认。";
-      bookingHint.textContent = "如果还想补充参考图或现场信息，可以继续微信沟通。";
+      bookingStatus.dataset.state = "";
+      bookingStatus.textContent = "";
+      openSuccessModal(result.bookingId || "");
     } catch (error) {
       bookingStatus.dataset.state = "error";
       bookingStatus.textContent = error.message;
