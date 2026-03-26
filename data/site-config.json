@@ -1,78 +1,70 @@
 {
   "brand": {
     "name": "婵媛 Nail Studio",
-    "intro": "上门美甲预约，本甲、甲片、卸甲，简单干净，可上门。",
+    "intro": "上门美甲，预约制，先看服务价格，再微信沟通款式和时间。",
     "city": "市区上门"
   },
+  "hero": {
+    "highlightTitle": "上门美甲，需提前预约",
+    "highlightCopy": "确认款式、日期和区域后，再提交预约会更高效。",
+    "tags": ["上门服务", "预约制", "微信沟通"]
+  },
+  "servicesSummary": "先看服务项目，再预约上门时间。",
   "services": [
     {
-      "tag": "本甲",
-      "title": "纯色 / 跳色 / 透色",
-      "description": "基础单色、跳色、透色，日常最常见的选择。",
-      "price": "19.8 元",
-      "duration": "约 45 分钟",
+      "tag": "Natural Nail",
+      "title": "本甲",
+      "description": "适合日常预约。",
+      "includes": ["纯色 / 跳色 / 透色", "纯色 + 建构", "款式", "款式 + 建构"],
+      "price": "19.8 元起",
+      "duration": "约 1-2 小时",
+      "image": "./assets/nail/nail-ref-01.svg",
       "fullLine": "本甲 · 纯色/跳色/透色：19.8 元"
     },
     {
-      "tag": "本甲",
-      "title": "纯色 + 建构",
-      "description": "纯色加建构，更耐用。",
-      "price": "39.8 元",
-      "duration": "约 1 小时",
-      "fullLine": "本甲 · 纯色+建构：39.8 元"
-    },
-    {
-      "tag": "本甲",
-      "title": "款式",
-      "description": "带图案或设计的款式甲，可提前发参考图。",
-      "price": "39.8 元",
-      "duration": "约 1–1.5 小时",
-      "fullLine": "本甲 · 款式：39.8 元"
-    },
-    {
-      "tag": "本甲",
-      "title": "款式 + 建构",
-      "description": "款式甲加建构，兼顾设计感和耐用性。",
-      "price": "59.8 元",
-      "duration": "约 1.5 小时",
-      "fullLine": "本甲 · 款式+建构：59.8 元"
-    },
-    {
-      "tag": "甲片",
-      "title": "半贴纯色",
-      "description": "半贴甲片，含建构，纯色款式。",
-      "price": "69.8 元",
-      "duration": "约 1.5 小时",
+      "tag": "Nail Tips",
+      "title": "甲片（含建构）",
+      "description": "适合需要延长或款式更完整的预约。",
+      "includes": ["半贴纯色", "半贴款式"],
+      "price": "69.8 元起",
+      "duration": "约 2-3 小时",
+      "image": "./assets/nail/nail-ref-02.svg",
       "fullLine": "甲片 · 半贴纯色：69.8 元"
     },
     {
-      "tag": "甲片",
-      "title": "半贴款式",
-      "description": "半贴甲片，含建构，带款式设计。",
-      "price": "89.8 元",
-      "duration": "约 2 小时",
-      "fullLine": "甲片 · 半贴款式：89.8 元"
-    },
-    {
-      "tag": "卸甲",
-      "title": "本甲卸除",
-      "description": "单独卸除本甲，正常收费。",
-      "price": "9.8 元",
-      "duration": "约 20 分钟",
+      "tag": "Removal",
+      "title": "卸甲",
+      "description": "续做或单独卸除都可以提前预约。",
+      "includes": ["本甲", "甲片", "本店续款不收费"],
+      "price": "9.8 元起",
+      "duration": "约 30-45 分钟",
+      "image": "./assets/nail/nail-ref-03.svg",
       "fullLine": "卸甲 · 本甲：9.8 元"
-    },
-    {
-      "tag": "卸甲",
-      "title": "甲片卸除",
-      "description": "卸除甲片，正常收费。本店续款不收卸甲费。",
-      "price": "19.8 元",
-      "duration": "约 30 分钟",
-      "fullLine": "卸甲 · 甲片：19.8 元"
     }
   ],
   "extras": [
-    "复杂款式 / 手绘：酌情加收 10–50 元",
-    "上门费用已含在报价内"
+    "本甲 · 纯色 / 跳色 / 透色：19.8 元",
+    "本甲 · 纯色 + 建构：39.8 元",
+    "本甲 · 款式：39.8 元",
+    "本甲 · 款式 + 建构：59.8 元",
+    "甲片 · 半贴纯色：69.8 元",
+    "甲片 · 半贴款式：89.8 元",
+    "卸甲 · 本甲：9.8 元",
+    "卸甲 · 甲片：19.8 元"
+  ],
+  "bookingProcess": [
+    {
+      "title": "先看服务",
+      "description": "先确认项目和大致价格。"
+    },
+    {
+      "title": "微信沟通",
+      "description": "发款式图、日期和区域。"
+    },
+    {
+      "title": "提交预约",
+      "description": "确认后再提交上门预约信息。"
+    }
   ],
   "contact": {
     "wechat": "StillinLoveWithYouH",

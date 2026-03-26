@@ -29,10 +29,10 @@ function warn(message) {
   warnings.push(`MISS ${message}`);
 }
 
-if (config.brand?.name === "婵媛造型") {
-  ok("品牌名已是 婵媛造型");
+if (config.brand?.name === "婵媛 Nail Studio") {
+  ok("品牌名已是 婵媛 Nail Studio");
 } else {
-  warn("品牌名不是 婵媛造型，请检查 data/site-config.json");
+  warn("品牌名不是 婵媛 Nail Studio，请检查 data/site-config.json");
 }
 
 if (config.contact?.wechat === "StillinLoveWithYouH") {
@@ -82,8 +82,8 @@ for (const key of optionalEnv) {
   }
 }
 
-console.log("婵媛造型上线前自检");
-console.log("==================");
+console.log("婵媛 Nail Studio 上线前自检");
+console.log("============================");
 
 for (const line of checks) {
   console.log(line);

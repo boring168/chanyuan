@@ -1,8 +1,8 @@
-# 婵媛造型最小可用接单站
+# 婵媛 Nail Studio 最小可用接单站
 
 这个版本只保留第一版接单必须的能力：
 
-- 首页展示品牌、作品、服务、微信与收款码
+- 首页展示品牌、服务、款式参考、微信与收款码
 - 独立预约页在站内直接提交需求
 - Vercel Serverless 接口写入 Supabase
 - 独立记录页查看预约记录
@@ -21,7 +21,7 @@
 - `bookings.js`：预约记录查看页
 - `api/bookings.js`：预约提交与记录读取接口
 - `data/site-config.json`：品牌、服务、联系、收款码配置
-- `data/portfolio.json`：作品配置
+- `assets/nail/`：美甲参考图
 - `supabase/bookings.sql`：Supabase 建表 SQL
 
 ## 预约链路

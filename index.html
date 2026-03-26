@@ -3,36 +3,176 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>婵媛造型 | 上门化妆价目表</title>
+    <title>婵媛 Nail Studio | 上门美甲预约</title>
     <meta
       name="description"
-      content="婵媛造型上门化妆价目表，包含日常、证件照、约会、写真、舞台与新娘早妆等项目，支持微信咨询与站内预约。"
+      content="婵媛 Nail Studio，上门美甲预约。本甲、甲片、卸甲，支持微信沟通与站内预约。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="makeup-page">
+  <body class="home-page">
     <div class="site-shell">
       <header class="topbar">
-        <a class="brand" href="#top" aria-label="婵媛造型首页" data-site-brand-link>
+        <a class="brand" href="#top" aria-label="婵媛 Nail Studio 首页">
           <span class="brand__en">CHANYUAN</span>
-          <span class="brand__cn" data-site-brand>婵媛造型</span>
+          <span class="brand__cn">婵媛 Nail</span>
         </a>
-        <nav class="topbar__nav" aria-label="主导航" data-site-nav></nav>
+        <nav class="topbar__nav" aria-label="主导航">
+          <a href="#services">服务内容</a>
+          <a href="#gallery">款式参考</a>
+          <a href="#notes">预约说明</a>
+          <a href="#contact">联系</a>
+        </nav>
       </header>
 
       <main id="top">
-        <div id="homepage-root"></div>
+        <section class="home-hero section">
+          <div class="home-hero__copy">
+            <h1 class="home-hero__title">婵媛 Nail Studio</h1>
+            <p class="home-hero__sub">上门美甲，需提前预约</p>
+            <div class="home-hero__actions">
+              <button class="button button--secondary button--sm" type="button" data-wechat-copy>微信咨询</button>
+              <a class="button button--primary button--sm" href="./booking">立即预约</a>
+            </div>
+            <ul class="home-hero__meta">
+              <li>上门服务</li>
+              <li>预约制</li>
+              <li>微信沟通</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section" id="services">
+          <div class="section-head section-head--centered">
+            <h2>服务内容</h2>
+            <p>先看服务价格，再预约时间。</p>
+          </div>
+
+          <div class="home-services-grid">
+            <article class="home-service-card card">
+              <p class="eyebrow">Natural Nail</p>
+              <h3 class="home-service-card__name">本甲</h3>
+              <p class="home-service-card__desc">适合日常预约</p>
+              <ul class="home-service-card__prices">
+                <li><span>纯色 / 跳色 / 透色</span><span class="home-service-card__price">19.8</span></li>
+                <li><span>纯色 + 建构</span><span class="home-service-card__price">39.8</span></li>
+                <li><span>款式</span><span class="home-service-card__price">39.8</span></li>
+                <li><span>款式 + 建构</span><span class="home-service-card__price">59.8</span></li>
+              </ul>
+              <a class="button button--primary button--sm home-service-card__cta" href="./booking?service=%E6%9C%AC%E7%94%B2%20%C2%B7%20%E7%BA%AF%E8%89%B2%2F%E8%B7%B3%E8%89%B2%2F%E9%80%8F%E8%89%B2%EF%BC%9A19.8%20%E5%85%83">预约上门</a>
+            </article>
+
+            <article class="home-service-card card">
+              <p class="eyebrow">Nail Tips</p>
+              <h3 class="home-service-card__name">甲片</h3>
+              <p class="home-service-card__desc">含建构</p>
+              <ul class="home-service-card__prices">
+                <li><span>半贴纯色</span><span class="home-service-card__price">69.8</span></li>
+                <li><span>半贴款式</span><span class="home-service-card__price">89.8</span></li>
+              </ul>
+              <a class="button button--primary button--sm home-service-card__cta" href="./booking?service=%E7%94%B2%E7%89%87%20%C2%B7%20%E5%8D%8A%E8%B4%B4%E7%BA%AF%E8%89%B2%EF%BC%9A69.8%20%E5%85%83">预约上门</a>
+            </article>
+
+            <article class="home-service-card card">
+              <p class="eyebrow">Removal</p>
+              <h3 class="home-service-card__name">卸甲</h3>
+              <p class="home-service-card__desc">续做或单独卸除</p>
+              <ul class="home-service-card__prices">
+                <li><span>本甲</span><span class="home-service-card__price">9.8</span></li>
+                <li><span>甲片</span><span class="home-service-card__price">19.8</span></li>
+              </ul>
+              <p class="home-service-card__footnote">本店续款不收卸甲费</p>
+              <a class="button button--secondary button--sm home-service-card__cta" href="./booking?service=%E5%8D%B8%E7%94%B2%20%C2%B7%20%E6%9C%AC%E7%94%B2%EF%BC%9A9.8%20%E5%85%83">预约上门</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="gallery">
+          <div class="section-head section-head--centered">
+            <h2>款式参考</h2>
+            <p>少量参考，预约前可微信发图确认。</p>
+          </div>
+
+          <div class="nail-ref-grid">
+            <article class="nail-ref-card card">
+              <img src="./assets/nail/nail-ref-01.svg" alt="纯色美甲参考" loading="lazy" />
+              <p>纯色</p>
+            </article>
+            <article class="nail-ref-card card">
+              <img src="./assets/nail/nail-ref-02.svg" alt="法式美甲参考" loading="lazy" />
+              <p>法式</p>
+            </article>
+            <article class="nail-ref-card card">
+              <img src="./assets/nail/nail-ref-03.svg" alt="简约设计美甲参考" loading="lazy" />
+              <p>简约设计</p>
+            </article>
+            <article class="nail-ref-card card">
+              <img src="./assets/nail/nail-ref-04.svg" alt="细节款美甲参考" loading="lazy" />
+              <p>细节款</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="notes">
+          <div class="section-head section-head--centered">
+            <h2>预约说明</h2>
+          </div>
+
+          <div class="home-notes-grid">
+            <article class="home-note-card card">
+              <p class="home-note-card__label">预约</p>
+              <p class="home-note-card__text">提前一天预约</p>
+            </article>
+            <article class="home-note-card card">
+              <p class="home-note-card__label">售后</p>
+              <p class="home-note-card__text">非人为问题，7 天内可免费修补一次</p>
+            </article>
+            <article class="home-note-card card">
+              <p class="home-note-card__label">沟通</p>
+              <p class="home-note-card__text">复杂款式需提前沟通</p>
+            </article>
+            <article class="home-note-card card">
+              <p class="home-note-card__label">参考图</p>
+              <p class="home-note-card__text">网图不保证 1:1 还原</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="home-booking-intro card">
+            <div>
+              <h2>微信咨询或直接预约</h2>
+              <p id="contact-note">有款式图或具体需求，可以直接微信发给我。</p>
+              <h3 id="wechat-value" class="home-booking-intro__wechat">StillinLoveWithYouH</h3>
+            </div>
+            <div class="home-booking-intro__actions">
+              <button class="button button--secondary" type="button" data-wechat-copy>微信咨询</button>
+              <a class="button button--primary" href="./booking">立即预约</a>
+            </div>
+          </div>
+
+          <article class="payment-panel card home-payment-panel" id="payment-panel" hidden>
+            <div class="payment-panel__copy">
+              <p class="eyebrow">Payment</p>
+              <h3>收款码</h3>
+              <p id="payment-copy">确认档期后，如需支付定金或尾款，可直接扫码。</p>
+            </div>
+            <div class="payment-panel__image">
+              <img id="payment-image" alt="婵媛 Nail Studio 收款码" loading="lazy" />
+            </div>
+          </article>
+        </section>
       </main>
 
       <footer class="site-footer">
-        <p data-site-footer-brand>婵媛造型</p>
-        <p data-site-footer-tagline>预约制上门妆造 · 微信咨询优先</p>
+        <p>婵媛 Nail Studio</p>
+        <p>上门美甲 · 预约制 · 微信优先</p>
       </footer>
 
       <div class="mobile-action-bar">
@@ -43,231 +183,6 @@
       </div>
     </div>
 
-    <template id="makeup-home-template">
-      <div class="page-intro section">
-        <div class="page-intro__text">
-          <p class="page-intro__title">婵媛造型 · 上门化妆</p>
-          <p class="page-intro__tagline" id="brand-intro">预约制上门妆造，主打清透精致、有镜头感的高级妆面。</p>
-        </div>
-        <div class="page-intro__actions">
-          <button class="button button--ghost button--sm" type="button" data-wechat-copy>微信咨询</button>
-          <a class="button button--primary button--sm" href="./booking">立即预约</a>
-        </div>
-      </div>
-
-      <section class="section" id="packages">
-        <div class="section-head section-head--wide">
-          <p class="eyebrow">Price List</p>
-          <h2>价目明细</h2>
-          <p id="services-summary">选好项目后直接点「立即预约」，填写日期、时间和联系方式。</p>
-        </div>
-        <div class="svc-list" id="services-grid"></div>
-
-        <article class="extras-panel card" id="extras-panel">
-          <p class="eyebrow">Supplement</p>
-          <h3>附加费用 / 说明</h3>
-          <ul class="pricing-note-list" id="extras-list"></ul>
-        </article>
-      </section>
-
-      <section class="section" id="portfolio">
-        <div class="section-head">
-          <p class="eyebrow">Lookbook</p>
-          <h2>风格参考</h2>
-          <p>案例做氛围参考，方便你判断自己更偏清透、甜感、上镜还是舞台表现力路线。</p>
-        </div>
-        <div class="portfolio-grid" id="portfolio-grid"></div>
-      </section>
-
-      <section class="section" id="contact">
-        <div class="section-head">
-          <p class="eyebrow">Contact</p>
-          <h2>联系与付款</h2>
-          <p>微信是最直接的沟通方式，确认档期后可扫码付款，宣传页、咨询和预约流程会尽量清楚直观。</p>
-        </div>
-        <div class="contact-layout">
-          <article class="card contact-card">
-            <p class="eyebrow">Wechat</p>
-            <h3 id="wechat-value">StillinLoveWithYouH</h3>
-            <p id="contact-note">看中项目后可先微信沟通日期、区域、是否需要发型以及你想要的妆感。</p>
-            <div class="action-row">
-              <button class="button button--primary" type="button" data-wechat-copy>
-                复制微信号
-              </button>
-              <a class="button button--secondary" href="./booking">去预约页</a>
-            </div>
-          </article>
-
-          <article class="card contact-card">
-            <p class="eyebrow">Service Area</p>
-            <h3 id="city-value">市区上门</h3>
-            <p>提交预约后，会结合日期、时段、预计时长、区域和附加需求确认是否可以安排。</p>
-            <ul class="detail-list">
-              <li>预约信息站内提交，记录更清楚</li>
-              <li>提交后可继续微信沟通细节</li>
-              <li>可同步确认上门费、发型和睫毛需求</li>
-            </ul>
-          </article>
-        </div>
-
-        <article class="payment-panel card" id="payment-panel" hidden>
-          <div class="payment-panel__copy">
-            <p class="eyebrow">Payment</p>
-            <h3>收款码</h3>
-            <p id="payment-copy">确认档期后，如需支付定金或尾款，可直接扫码。</p>
-          </div>
-          <div class="payment-panel__image">
-            <img id="payment-image" alt="婵媛造型收款码" loading="lazy" />
-          </div>
-        </article>
-      </section>
-    </template>
-
-    <template id="nail-home-template">
-      <section class="home-hero section">
-        <div class="home-hero__copy">
-          <h1 class="home-hero__title">婵媛 Nail Studio</h1>
-          <p class="home-hero__sub">上门美甲，需提前预约</p>
-          <div class="home-hero__actions">
-            <a class="button button--secondary button--sm" href="#services">查看服务</a>
-            <a class="button button--primary button--sm" href="./booking">立即预约</a>
-          </div>
-          <ul class="home-hero__meta">
-            <li>上门</li>
-            <li>预约制</li>
-            <li>微信沟通</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section" id="services">
-        <div class="section-head section-head--centered">
-          <h2>服务内容</h2>
-          <p>先看服务，再预约。</p>
-        </div>
-
-        <div class="home-services-grid">
-          <article class="home-service-card card">
-            <p class="eyebrow">Natural Nail</p>
-            <h3 class="home-service-card__name">本甲</h3>
-            <p class="home-service-card__desc">日常预约</p>
-            <ul class="home-service-card__prices">
-              <li><span>纯色 / 跳色 / 透色</span><span class="home-service-card__price">19.8</span></li>
-              <li><span>纯色 + 建构</span><span class="home-service-card__price">39.8</span></li>
-              <li><span>款式</span><span class="home-service-card__price">39.8</span></li>
-              <li><span>款式 + 建构</span><span class="home-service-card__price">59.8</span></li>
-            </ul>
-            <a class="button button--primary button--sm home-service-card__cta" href="./booking">立即预约</a>
-          </article>
-
-          <article class="home-service-card card">
-            <p class="eyebrow">Nail Tips</p>
-            <h3 class="home-service-card__name">甲片</h3>
-            <p class="home-service-card__desc">含建构</p>
-            <ul class="home-service-card__prices">
-              <li><span>半贴纯色</span><span class="home-service-card__price">69.8</span></li>
-              <li><span>半贴款式</span><span class="home-service-card__price">89.8</span></li>
-            </ul>
-            <a class="button button--primary button--sm home-service-card__cta" href="./booking">立即预约</a>
-          </article>
-
-          <article class="home-service-card card">
-            <p class="eyebrow">Removal</p>
-            <h3 class="home-service-card__name">卸甲</h3>
-            <p class="home-service-card__desc">续做或单独卸除</p>
-            <ul class="home-service-card__prices">
-              <li><span>本甲</span><span class="home-service-card__price">9.8</span></li>
-              <li><span>甲片</span><span class="home-service-card__price">19.8</span></li>
-            </ul>
-            <p class="home-service-card__footnote">本店续款不收费，只卸不做正常收费</p>
-            <a class="button button--secondary button--sm home-service-card__cta" href="./booking">预约卸甲</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="notes">
-        <div class="section-head section-head--centered">
-          <h2>预约说明</h2>
-        </div>
-
-        <div class="home-notes-grid">
-          <article class="home-note-card card">
-            <p class="home-note-card__label">预约</p>
-            <p class="home-note-card__text">提前一天预约</p>
-          </article>
-          <article class="home-note-card card">
-            <p class="home-note-card__label">售后</p>
-            <p class="home-note-card__text">非人为问题，7 天内可免费修补一次</p>
-          </article>
-          <article class="home-note-card card">
-            <p class="home-note-card__label">沟通</p>
-            <p class="home-note-card__text">复杂款式需提前沟通</p>
-          </article>
-          <article class="home-note-card card">
-            <p class="home-note-card__label">参考图</p>
-            <p class="home-note-card__text">网图不保证 1:1 还原</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="contact">
-        <div class="home-booking-intro card">
-          <div>
-            <h2>微信咨询或直接预约</h2>
-            <p id="contact-note">有款式图或具体需求，可以直接微信发给我。</p>
-            <h3 id="wechat-value" class="home-booking-intro__wechat">StillinLoveWithYouH</h3>
-          </div>
-          <div class="home-booking-intro__actions">
-            <button class="button button--secondary" type="button" data-wechat-copy>微信咨询</button>
-            <a class="button button--primary" href="./booking">立即预约</a>
-          </div>
-        </div>
-
-        <article class="payment-panel card home-payment-panel" id="payment-panel" hidden>
-          <div class="payment-panel__copy">
-            <p class="eyebrow">Payment</p>
-            <h3>收款码</h3>
-            <p id="payment-copy">确认档期后，如需支付定金或尾款，可直接扫码。</p>
-          </div>
-          <div class="payment-panel__image">
-            <img id="payment-image" alt="婵媛 Nail Studio 收款码" loading="lazy" />
-          </div>
-        </article>
-      </section>
-    </template>
-
-    <template id="portfolio-card-template">
-      <article class="portfolio-card card">
-        <div class="portfolio-card__image">
-          <img alt="" loading="lazy" />
-        </div>
-        <div class="portfolio-card__body">
-          <h3></h3>
-          <p></p>
-        </div>
-      </article>
-    </template>
-
-    <template id="svc-card-template">
-      <article class="svc-card card">
-        <div class="svc-card__img-wrap">
-          <img class="svc-card__img" alt="" loading="lazy" />
-        </div>
-        <div class="svc-card__body">
-          <div class="svc-card__meta">
-            <span class="svc-card__tag"></span>
-            <span class="svc-card__duration"></span>
-          </div>
-          <h3 class="svc-card__title"></h3>
-          <p class="svc-card__scene"></p>
-        </div>
-        <div class="svc-card__aside">
-          <p class="svc-card__price"></p>
-          <a class="button button--primary button--sm svc-card__book-btn" data-service-pick>立即预约</a>
-        </div>
-      </article>
-    </template>
-
     <script src="./main.js" type="module"></script>
 
     <div id="wechat-modal" class="wechat-modal" role="dialog" aria-modal="true" aria-label="微信咨询" hidden>
@@ -275,7 +190,7 @@
       <div class="wechat-modal__card">
         <button class="wechat-modal__close" type="button" aria-label="关闭">×</button>
         <p class="eyebrow">添加微信咨询</p>
-        <img class="wechat-modal__qr" id="wechat-modal-qr" alt="婵媛微信二维码" hidden />
+        <img class="wechat-modal__qr" id="wechat-modal-qr" alt="婵媛 Nail Studio 微信二维码" hidden />
         <p class="wechat-modal__id" id="wechat-modal-id"></p>
         <button class="button button--primary wechat-modal__copy-btn" id="wechat-modal-copy" type="button">复制微信号</button>
         <p class="wechat-modal__hint" id="wechat-modal-copy-status"></p>

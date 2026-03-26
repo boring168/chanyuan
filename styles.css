@@ -1465,6 +1465,33 @@ h1 {
   padding-top: 36px;
 }
 
+.nail-ref-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.nail-ref-card {
+  padding: 14px;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.nail-ref-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 16px;
+  background: #f5f5f7;
+}
+
+.nail-ref-card p {
+  margin: 12px 2px 2px;
+  color: #4a4a4a;
+  font-size: 14px;
+}
+
 @media (min-width: 760px) {
   .home-services-grid,
   .home-notes-grid,
@@ -1484,6 +1511,10 @@ h1 {
 
   .home-booking-intro__actions {
     justify-content: flex-end;
+  }
+
+  .nail-ref-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1508,6 +1539,10 @@ h1 {
   .home-payment-panel {
     grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.8fr);
     align-items: center;
+  }
+
+  .nail-ref-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 

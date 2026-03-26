@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>婵媛造型 | 站内预约</title>
+    <title>婵媛 Nail Studio | 站内预约</title>
     <meta
       name="description"
-      content="婵媛造型站内预约页，先选服务，再填写日期、时间段、预计时长、区域和联系方式。"
+      content="婵媛 Nail Studio 站内预约页，先选服务，再填写日期、时间段、区域和联系方式。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,13 +19,13 @@
   <body>
     <div class="site-shell">
       <header class="topbar">
-        <a class="brand" href="./index.html" aria-label="返回婵媛造型首页">
+        <a class="brand" href="./index.html" aria-label="返回婵媛 Nail Studio 首页">
           <span class="brand__en">CHANYUAN</span>
-          <span class="brand__cn">婵媛造型</span>
+          <span class="brand__cn">婵媛 Nail</span>
         </a>
         <nav class="topbar__nav" aria-label="预约页导航">
-          <a href="./index.html#packages">价目表</a>
-          <a href="./index.html#portfolio">风格参考</a>
+          <a href="./index.html#services">服务内容</a>
+          <a href="./index.html#gallery">款式参考</a>
           <a href="#booking-form">预约</a>
           <a href="./index.html#contact">联系</a>
         </nav>
@@ -34,10 +34,10 @@
       <main class="subpage-main">
         <div class="booking-header">
           <div class="booking-header__text">
-            <p class="eyebrow">婵媛造型 · 在线预约</p>
-            <h1 class="booking-header__title">预约上门化妆</h1>
+            <p class="eyebrow">婵媛 Nail Studio · 在线预约</p>
+            <h1 class="booking-header__title">预约上门美甲</h1>
           </div>
-          <a class="button button--ghost button--sm" href="./index.html">← 返回服务列表</a>
+          <a class="button button--ghost button--sm" href="./index.html">← 返回首页</a>
         </div>
 
         <div class="booking-service-banner card" id="booking-service-banner" hidden>
@@ -48,7 +48,7 @@
         <section class="service-picks card">
           <div>
             <p class="eyebrow">Choose Service</p>
-            <p class="section-copy">先点中最接近的价目项目，再往下填写预约信息。</p>
+            <p class="section-copy">先选服务，再填写预约信息。</p>
           </div>
           <div class="service-picks__list" id="service-picks"></div>
         </section>
@@ -88,8 +88,7 @@
                 <option value="">请选择预计服务时长</option>
                 <option value="1小时内">1小时内</option>
                 <option value="2小时内">2小时内</option>
-                <option value="半天（约3-4小时）">半天（约3-4小时）</option>
-                <option value="全天">全天</option>
+                <option value="3小时内">3小时内</option>
                 <option value="需要沟通确认">需要沟通确认</option>
               </select>
             </label>
@@ -114,14 +113,14 @@
               <textarea
                 name="notes"
                 rows="5"
-                placeholder="例如：希望的妆感、活动类型、是否需要发型、是否多人等"
+                placeholder="例如：想做的款式、是否自带参考图、是否需要卸甲"
               ></textarea>
             </label>
 
             <div class="form-card__full form-card__actions">
               <button class="button button--primary form-submit-btn" type="submit">确认提交预约</button>
               <button class="button button--ghost" type="button" data-wechat-copy>复制微信号</button>
-              <p class="inline-note" id="booking-hint">提交后可继续微信沟通具体细节。</p>
+              <p class="inline-note" id="booking-hint">提交后可继续微信沟通款式和时间。</p>
               <p class="status-text" id="booking-status" role="status" aria-live="polite"></p>
             </div>
           </form>
@@ -130,7 +129,7 @@
             <article class="card info-card">
               <p class="eyebrow">Wechat</p>
               <h3 id="wechat-value">StillinLoveWithYouH</h3>
-              <p id="contact-note">如果你还没完全确定服务内容，建议先微信沟通妆感、日期和区域。</p>
+              <p id="contact-note">有款式图或具体需求，可以直接微信发给我。</p>
               <button class="button button--ghost" type="button" data-wechat-copy>复制微信号</button>
             </article>
 
@@ -138,9 +137,9 @@
               <p class="eyebrow">Before Submit</p>
               <h3>填单前确认</h3>
               <ul class="detail-list">
-                <li>先选服务，再填日期和时间段</li>
-                <li>预计时长越准确越容易确认是否能接</li>
-                <li>区域越清楚越方便判断安排</li>
+                <li>提前确认日期和区域</li>
+                <li>有参考图可直接发微信</li>
+                <li>复杂款式建议先沟通</li>
               </ul>
             </article>
 
@@ -148,7 +147,7 @@
               <p class="eyebrow">Payment</p>
               <h3>收款码</h3>
               <p id="payment-copy">确认档期后，如需支付定金或尾款，可直接扫码。</p>
-              <img id="payment-image" alt="婵媛造型收款码" loading="lazy" />
+              <img id="payment-image" alt="婵媛 Nail Studio 收款码" loading="lazy" />
             </article>
           </aside>
         </section>
@@ -176,7 +175,7 @@
         </div>
         <div class="success-modal__body">
           <p class="success-modal__title">预约提交成功 ✓</p>
-          <p class="success-modal__desc">我们已收到你的预约信息，可继续微信沟通细节。</p>
+          <p class="success-modal__desc">我们已收到你的预约信息，可继续微信沟通款式和时间。</p>
           <p class="success-modal__id" id="success-modal-id"></p>
         </div>
         <div class="success-modal__actions">
@@ -192,7 +191,7 @@
       <div class="wechat-modal__card">
         <button class="wechat-modal__close" type="button" aria-label="关闭">×</button>
         <p class="eyebrow">添加微信咨询</p>
-        <img class="wechat-modal__qr" id="wechat-modal-qr" alt="婵媛造型微信二维码" hidden />
+        <img class="wechat-modal__qr" id="wechat-modal-qr" alt="婵媛 Nail Studio 微信二维码" hidden />
         <p class="wechat-modal__id" id="wechat-modal-id"></p>
         <button class="button button--primary wechat-modal__copy-btn" id="wechat-modal-copy" type="button">复制微信号</button>
         <p class="wechat-modal__hint" id="wechat-modal-copy-status"></p>
