@@ -167,6 +167,7 @@ function setupSuccessModal(config) {
 
   overlay?.addEventListener("click", close);
   closeBtn?.addEventListener("click", close);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) close(); });
 
   wechatBtn?.addEventListener("click", () => {
     close();
@@ -254,6 +255,8 @@ async function init() {
 
   bookingForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+    const submitBtn = bookingForm.querySelector('[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
     bookingStatus.textContent = "正在提交预约...";
     bookingStatus.dataset.state = "loading";
 
@@ -265,10 +268,12 @@ async function init() {
       setSelectedPick("");
       bookingStatus.dataset.state = "";
       bookingStatus.textContent = "";
+      if (submitBtn) submitBtn.disabled = false;
       openSuccessModal(result.bookingId || "");
     } catch (error) {
       bookingStatus.dataset.state = "error";
       bookingStatus.textContent = error.message;
+      if (submitBtn) submitBtn.disabled = false;
     }
   });
 }

@@ -8,6 +8,33 @@ const REQUIRED_FIELDS = [
   "location",
 ];
 
+// ── 基础限流（内存级，适合单实例轻量防护）────────────────────────────────
+const postRateLimit = new Map();
+const POST_LIMIT = 5;          // 每 IP 最多 5 次
+const POST_WINDOW = 10 * 60 * 1000; // 10 分钟窗口
+
+function getClientIp(req) {
+  return String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "unknown")
+    .split(",")[0]
+    .trim();
+}
+
+function checkPostRateLimit(ip) {
+  const now = Date.now();
+  // 顺手清理过期条目，防止 Map 无限增长
+  for (const [key, val] of postRateLimit) {
+    if (now > val.resetAt) postRateLimit.delete(key);
+  }
+  const entry = postRateLimit.get(ip);
+  if (!entry || now > entry.resetAt) {
+    postRateLimit.set(ip, { count: 1, resetAt: now + POST_WINDOW });
+    return true;
+  }
+  if (entry.count >= POST_LIMIT) return false;
+  entry.count++;
+  return true;
+}
+
 function escapeHtml(value = "") {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -222,6 +249,12 @@ module.exports = async function handler(req, res) {
         return res.status(500).json({
           error: "预约服务尚未完成配置，请先设置 Supabase 环境变量。",
         });
+      }
+
+      const clientIp = getClientIp(req);
+      if (!checkPostRateLimit(clientIp)) {
+        res.setHeader("Cache-Control", "no-store");
+        return res.status(429).json({ error: "提交过于频繁，请稍后再试。" });
       }
 
       const payload = await parseBody(req);

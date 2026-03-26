@@ -17,3 +17,5 @@ env/
 
 # Local secrets
 .env.local
+.vercel
+.env*.local

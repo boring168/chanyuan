@@ -2,6 +2,32 @@ function getAdminKey() {
   return process.env.BOOKINGS_ADMIN_KEY;
 }
 
+// ── 登录暴力破解防护 ─────────────────────────────────────────────────────
+const loginRateLimit = new Map();
+const LOGIN_LIMIT = 10;
+const LOGIN_WINDOW = 15 * 60 * 1000; // 15 分钟内最多 10 次尝试
+
+function getClientIp(req) {
+  return String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "unknown")
+    .split(",")[0]
+    .trim();
+}
+
+function checkLoginRateLimit(ip) {
+  const now = Date.now();
+  for (const [key, val] of loginRateLimit) {
+    if (now > val.resetAt) loginRateLimit.delete(key);
+  }
+  const entry = loginRateLimit.get(ip);
+  if (!entry || now > entry.resetAt) {
+    loginRateLimit.set(ip, { count: 1, resetAt: now + LOGIN_WINDOW });
+    return true;
+  }
+  if (entry.count >= LOGIN_LIMIT) return false;
+  entry.count++;
+  return true;
+}
+
 function parseCookies(cookieHeader = "") {
   return Object.fromEntries(
     cookieHeader
@@ -49,6 +75,12 @@ module.exports = async function handler(req, res) {
   }
 
   if (req.method === "POST") {
+    const clientIp = getClientIp(req);
+    if (!checkLoginRateLimit(clientIp)) {
+      res.setHeader("Cache-Control", "no-store");
+      return res.status(429).json({ error: "尝试次数过多，请稍后再试。" });
+    }
+
     const payload =
       typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};
     const submittedKey = String(payload.key || "").trim();
