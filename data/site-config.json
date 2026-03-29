@@ -12,45 +12,73 @@
   "servicesSummary": "先看服务项目，再预约上门时间。",
   "services": [
     {
-      "tag": "Natural Nail",
-      "title": "本甲",
-      "description": "适合日常预约。",
-      "includes": ["纯色 / 跳色 / 透色", "纯色 + 建构", "款式", "款式 + 建构"],
-      "price": "19.8 元起",
+      "tag": "Basic",
+      "title": "纯色美甲",
+      "description": "干净基础款，适合日常",
+      "includes": ["纯色美甲"],
+      "price": "69 元",
       "duration": "约 1-2 小时",
       "image": "./assets/nail/nail-ref-01.svg",
-      "fullLine": "本甲 · 纯色/跳色/透色：19.8 元"
+      "fullLine": "纯色美甲：69 元"
     },
     {
-      "tag": "Nail Tips",
-      "title": "甲片（含建构）",
-      "description": "适合需要延长或款式更完整的预约。",
-      "includes": ["半贴纯色", "半贴款式"],
-      "price": "69.8 元起",
-      "duration": "约 2-3 小时",
+      "tag": "Design",
+      "title": "简约美甲",
+      "description": "轻设计，适合约会、见人、拍照",
+      "includes": ["简约美甲"],
+      "price": "89 元",
+      "duration": "约 1-2 小时",
       "image": "./assets/nail/nail-ref-02.svg",
-      "fullLine": "甲片 · 半贴纯色：69.8 元"
+      "fullLine": "简约美甲：89 元"
     },
     {
-      "tag": "Removal",
-      "title": "卸甲",
-      "description": "续做或单独卸除都可以提前预约。",
-      "includes": ["本甲", "甲片", "本店续款不收费"],
-      "price": "9.8 元起",
-      "duration": "约 30-45 分钟",
+      "tag": "Premium",
+      "title": "猫眼 / 微设计",
+      "description": "更精致一点，有氛围感",
+      "includes": ["猫眼 / 微设计"],
+      "price": "99 元",
+      "duration": "约 2-3 小时",
+      "image": "./assets/nail/nail-ref-04.svg",
+      "fullLine": "猫眼/微设计：99 元"
+    },
+    {
+      "tag": "Daily",
+      "title": "日常妆 + 纯色美甲",
+      "description": "适合简单出门、约会前快速整理",
+      "includes": ["日常妆", "纯色美甲"],
+      "price": "129 元",
+      "duration": "约 2-3 小时",
+      "image": "./assets/nail/nail-ref-01.svg",
+      "fullLine": "日常妆+纯色美甲：129 元"
+    },
+    {
+      "tag": "Date",
+      "title": "约会妆 + 简约美甲",
+      "description": "更精致，适合约会、生日、聚会",
+      "includes": ["约会妆", "简约美甲"],
+      "price": "159 元",
+      "duration": "约 3-4 小时",
+      "image": "./assets/nail/nail-ref-02.svg",
+      "fullLine": "约会妆+简约美甲：159 元"
+    },
+    {
+      "tag": "Photo",
+      "title": "拍照妆 + 微设计美甲",
+      "description": "适合拍照和重要场合",
+      "includes": ["拍照妆", "微设计美甲"],
+      "price": "179 元",
+      "duration": "约 3-4 小时",
       "image": "./assets/nail/nail-ref-03.svg",
-      "fullLine": "卸甲 · 本甲：9.8 元"
+      "fullLine": "拍照妆+微设计美甲：179 元"
     }
   ],
   "extras": [
-    "本甲 · 纯色 / 跳色 / 透色：19.8 元",
-    "本甲 · 纯色 + 建构：39.8 元",
-    "本甲 · 款式：39.8 元",
-    "本甲 · 款式 + 建构：59.8 元",
-    "甲片 · 半贴纯色：69.8 元",
-    "甲片 · 半贴款式：89.8 元",
-    "卸甲 · 本甲：9.8 元",
-    "卸甲 · 甲片：19.8 元"
+    "纯色美甲：69 元",
+    "简约美甲：89 元",
+    "猫眼/微设计：99 元",
+    "日常妆+纯色美甲：129 元",
+    "约会妆+简约美甲：159 元",
+    "拍照妆+微设计美甲：179 元"
   ],
   "bookingProcess": [
     {
